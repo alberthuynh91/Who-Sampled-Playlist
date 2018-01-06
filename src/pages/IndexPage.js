@@ -7,6 +7,7 @@ export default class IndexPage extends Component {
       <div>
         <h1>Hello, world!</h1>
         <Link to="/todo">Go to TodoList</Link>
+        <br />
         <Link to="/login">Login</Link>
       </div>
     );

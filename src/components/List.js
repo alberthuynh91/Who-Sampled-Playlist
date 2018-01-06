@@ -27,21 +27,19 @@ export default class List extends Component {
     
     if (tracks.length > 0) {
       const trackItems = tracks.map((track, i) => {
-        // console.log(`what is track: `, track);
         const index = i + 1;
-        return (
-          <ListItem index={index} track={track} {...this.props}/>
-        );
+        return (<ListItem index={index} track={track} {...this.props}/>);
       });
 
       return (
         <div>
-          <h3>Songs Sampled by Kanye West</h3>
-          <table className="table table-striped hover">
+          <h3>Here are some songs sampled by Kanye West</h3>
+          <table className="table table-striped table-hover">
             <thead>
             <tr>
               <th scope="col">Artist</th>
               <th scope="col">Song Name</th>
+              <th scope="col"></th>              
               </tr>
             </thead>
             <tbody>
@@ -52,9 +50,7 @@ export default class List extends Component {
       );
     }
 
-    return (
-      <div>Track List</div>
-    );
+    return null
   }
 }
 

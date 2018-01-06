@@ -7,6 +7,11 @@ import * as playlistActionCreators from '../actions/PlaylistActions.js';
 import * as searchActionCreators from '../actions/SearchActions.js';
 
 class SpotifyAppPage extends Component {
+  componentWillMount() {
+    localStorage.setItem('accessToken', this.props.location.query.access_token);
+    localStorage.setItem('refreshToken', this.props.location.query.refresh_token);
+  }
+
   render() {
     return (
       <div>

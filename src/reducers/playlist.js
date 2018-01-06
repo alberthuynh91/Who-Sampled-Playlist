@@ -2,16 +2,19 @@
 import * as ActionTypes from '../constants/ActionTypes.js';
 
 const initialState = {
-  tracks: []
+  tracks: [],
+  uris: []
 };
 
 export function tracks(state = initialState, action = null) {
   const { type, payload } = action;
   switch (type) {
     case ActionTypes.ADD_TRACK: {
-      const newList = state.tracks;
-      newList.push(payload);
-      return Object.assign({}, state, { tracks: newList });
+      const newTrackList = state.tracks;
+      newTrackList.push(payload);
+      const newURIList = state.uris;
+      newURIList.push(payload.uri);
+      return Object.assign({}, state, { tracks: newTrackList, uris: newURIList });
     }
     case ActionTypes.DELETE_TRACK:
       return state.delete(payload.index);

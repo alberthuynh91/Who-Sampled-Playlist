@@ -3,7 +3,10 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
 import store from './lib/store';
+
 import 'style!css!todomvc-app-css/index.css';
+
+
 import Routes from './Routes';
 
 if (__DEVELOPMENT__) {
