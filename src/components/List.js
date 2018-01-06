@@ -3,6 +3,7 @@
 
 import React, { Component, PropTypes } from 'react';
 import Immutable from 'immutable';
+import ListItem from './ListItem.js'
 
 
 export default class List extends Component {
@@ -20,14 +21,16 @@ export default class List extends Component {
   }
 
   render() {
-    const {tracks} = this.props;
+    console.log(`what is props from list: `, this.props)
+    const {search} = this.props;
+    const {tracks} = search;
     
     if (tracks.length > 0) {
       const trackItems = tracks.map((track, i) => {
-        console.log(`what is track: `, track);
+        // console.log(`what is track: `, track);
         const index = i + 1;
         return (
-          <ListItem index={index} track={track} />
+          <ListItem index={index} track={track} {...this.props}/>
         );
       });
 
@@ -36,7 +39,10 @@ export default class List extends Component {
           <h3>Songs Sampled by Kanye West</h3>
           <table className="table table-striped hover">
             <thead>
-              {tracks}
+            <tr>
+              <th scope="col">Artist</th>
+              <th scope="col">Song Name</th>
+              </tr>
             </thead>
             <tbody>
               {trackItems}

@@ -3,10 +3,7 @@ import { ADD_TRACK, TOGGLE_TRACK, DELETE_TRACK, CLEAR_TRACKS } from '../constant
 export function addTrack(payload) {
   return {
     type: ADD_TRACK,
-    payload: {
-      payload,
-      completed: false
-    }
+    payload
   };
 }
 

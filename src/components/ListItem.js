@@ -10,8 +10,10 @@ export default class ListItem extends Component {
   //   filter: PropTypes.string.isRequired
   // };
 
-  handleAdd() {
-    this.props.addTrack()
+  handleAdd(track) {
+    console.log(`what is props in handleAdd: `, this.props)
+    console.log(`attempting to add: `, track)
+    this.props.addTrack(track)
   }
 
   handleDelete(index) {
@@ -21,8 +23,7 @@ export default class ListItem extends Component {
   render() {
     const {track} = this.props
     return (
-      <tr>
-        <td>{track.index}</td>
+      <tr onClick={(e) => {this.handleAdd(track)}}>
         <td>{track.artists[0].name}</td>
         <td>{track.name}</td>
       </tr>

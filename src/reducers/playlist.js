@@ -1,15 +1,18 @@
-import { List, Map } from 'immutable';
+// import { List, Map } from 'immutable';
 import * as ActionTypes from '../constants/ActionTypes.js';
 
-const initialState = List([
-  Map({ text: 'my first todo', completed: false }),
-  Map({ text: 'my second todo', completed: false })]);
+const initialState = {
+  tracks: []
+};
 
 export function tracks(state = initialState, action = null) {
   const { type, payload } = action;
   switch (type) {
-    case ActionTypes.ADD_TRACK:
-      return state.push(Map(payload));
+    case ActionTypes.ADD_TRACK: {
+      const newList = state.tracks;
+      newList.push(payload);
+      return Object.assign({}, state, { tracks: newList });
+    }
     case ActionTypes.DELETE_TRACK:
       return state.delete(payload.index);
     case ActionTypes.CLEAR_TRACKS:
