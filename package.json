@@ -9,13 +9,20 @@
     "start": "node scripts/server.js",
     "clean": "node scripts/clean.js",
     "asset": "node scripts/asset.js",
-    "build": "npm run clean; npm run asset; node scripts/build.js"
+    "build": "npm run clean; npm run asset; node scripts/build.js",
+    "go": "npm run build; npm start"
   },
   "author": "lcj <emlcjnil@gmail.com>",
   "license": "BSD 3-clause",
   "dependencies": {
+    "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
     "immutable": "^3.7.6",
+    "morgan": "^1.9.0",
+    "querystring": "^0.2.0",
     "react": "^15.0.0-rc.1",
+    "react-bootstrap": "^0.32.0",
     "react-dom": "^15.0.0-rc.1",
     "react-redux": "^4.4.0",
     "react-router": "^2.0.1",
@@ -23,6 +30,7 @@
     "redux": "^3.3.1",
     "redux-devtools": "^3.1.1",
     "redux-thunk": "^2.0.1",
+    "request": "^2.83.0",
     "todomvc-app-css": "^2.0.4"
   },
   "devDependencies": {
