@@ -4,6 +4,7 @@
 import React, { Component, PropTypes } from 'react';
 import Immutable from 'immutable';
 import ListItem from './ListItem.js'
+import {map} from 'ramda'
 
 
 export default class UserPlaylist extends Component {
@@ -12,26 +13,14 @@ export default class UserPlaylist extends Component {
   //   filter: PropTypes.string.isRequired
   // };
 
-  handleCheck(index) {
-    this.props.toggleChecked(index);
-  }
-
-  handleDestroy(index) {
-    this.props.deleteTodo(index);
-  }
-
   render() {
-    console.log(`what is props from userlist: `, this.props)
     const {tracks} = this.props;
-    
-    if (tracks.tracks.length > 0) {
-      const trackItems = tracks.tracks.map((track, i) => {
-        // console.log(`what is track: `, track);
-        const index = i + 1;
-        return (
-          <ListItem index={index} track={track} />
-        );
-      });
+    if (Object.keys(tracks.tracks).length > 0) {
+      const trackItems = map((track) => {
+        return <ListItem track={track} {...this.props} />
+      }, tracks.tracks)
+
+      const trackItemsArray = Object.values(trackItems)
 
       return (
         <div>
@@ -44,7 +33,7 @@ export default class UserPlaylist extends Component {
               </tr>
             </thead>
             <tbody>
-              {trackItems}
+              {trackItemsArray}
             </tbody>
           </table>
         </div>

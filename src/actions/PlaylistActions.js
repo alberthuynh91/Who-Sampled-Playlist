@@ -16,12 +16,10 @@ export function toggleTrack(index) {
   };
 }
 
-export function deleteTrack(index) {
+export function deleteTrack(payload) {
   return {
     type: DELETE_TRACK,
-    payload: {
-      index
-    }
+    payload
   };
 }
 

@@ -16,7 +16,7 @@ class SpotifyApp extends Component {
   render() {
     console.log(`what is props in spotify app: `, this.props)
     const { tracks, filter, addTrack, deleteTrack, clearTracks } = this.props;
-    const hasTracks = this.props.tracks.size > 0
+    const hasTracks = Object.keys(tracks.tracks).length > 0
     return (
       <section className="spotifyapp">
         <SearchBar {...this.props} />

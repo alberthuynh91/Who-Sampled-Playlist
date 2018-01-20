@@ -3,6 +3,7 @@
 import React, { Component, PropTypes } from 'react';
 import Immutable from 'immutable';
 
+
 export default class ListItem extends Component {
 
   state = {
@@ -10,22 +11,30 @@ export default class ListItem extends Component {
   }
 
   mouseEnter = () => {
-    console.log(`mouse enter`)
     this.setState({ isMouseInside: true })
   }
 
   mouseLeave = () => {
-    console.log(`mouse exit`)
     this.setState({ isMouseInside: false })
   }
 
   showItemActions = (track) => {
+    console.log(`what is track: `, track)
     if (this.state.isMouseInside) {
       return (
         <div>
           <span className="glyphicon glyphicon-play"></span>
-          <span className="glyphicon glyphicon-plus" onClick={(e) => {this.handleAdd(track)}}></span>
-          <span className="glyphicon glyphicon-trash"></span>
+          <span 
+            className="glyphicon glyphicon-plus" 
+            onClick={(e) => {this.handleAdd(track)}}>
+          </span>
+          <span 
+            className="glyphicon glyphicon-trash"
+            onClick={(e) => {
+              console.log(`deleting id: `, track)
+              this.handleDelete(track)
+              }}>
+          </span>
         </div>
       )
     }
@@ -34,19 +43,22 @@ export default class ListItem extends Component {
   }
 
   handlePreview() {
-
   }
 
   handleAdd(track) {
+    console.log(`adding track: `, track)
     this.props.addTrack(track)
   }
 
-  handleDelete(index) {
-    this.props.deleteTrack(index);
+  handleDelete(track) {
+    console.log(`deleting track: `, track)
+    this.props.deleteTrack(track);
+    // this.props.clearTracks()
   }
 
   render() {
     const {track} = this.props
+    console.log(`props in listitm: `, this.props)
     return (
       <tr onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>
         <td>{track.artists[0].name}</td>
