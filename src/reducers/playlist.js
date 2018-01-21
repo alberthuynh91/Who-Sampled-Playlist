@@ -1,5 +1,5 @@
 // import { List, Map } from 'immutable';
-import { omit } from 'ramda';
+import { omit, map } from 'ramda';
 import * as ActionTypes from '../constants/ActionTypes.js';
 
 const initialState = {
@@ -13,13 +13,16 @@ export function tracks(state = initialState, action = null) {
     case ActionTypes.ADD_TRACK: {
       const newTrackList = state.tracks;
       newTrackList[payload.id] = payload;
-      const newURIList = state.uris;
-      newURIList.push(payload.uri);
-      return Object.assign({}, state, { tracks: newTrackList, uris: newURIList });
+      return Object.assign({}, state, { tracks: newTrackList });
     }
     case ActionTypes.DELETE_TRACK: {
       const newTrackList = omit([payload.id], state.tracks);
       return Object.assign({}, state, { tracks: newTrackList });
+    }
+    case ActionTypes.GET_URIS: {
+      const newTrackList = state.tracks;
+      const uriList = Object.values(map((track) => (track.uri), newTrackList));
+      return Object.assign({}, state, { uris: uriList });
     }
     case ActionTypes.CLEAR_TRACKS:
       return initialState;

@@ -19,7 +19,6 @@ export default class ListItem extends Component {
   }
 
   showItemActions = (track) => {
-    console.log(`what is track: `, track)
     if (this.state.isMouseInside) {
       return (
         <div>
@@ -46,19 +45,16 @@ export default class ListItem extends Component {
   }
 
   handleAdd(track) {
-    console.log(`adding track: `, track)
     this.props.addTrack(track)
   }
 
   handleDelete(track) {
-    console.log(`deleting track: `, track)
     this.props.deleteTrack(track);
     // this.props.clearTracks()
   }
 
   render() {
     const {track} = this.props
-    console.log(`props in listitm: `, this.props)
     return (
       <tr onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>
         <td>{track.artists[0].name}</td>

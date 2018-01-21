@@ -21,7 +21,6 @@ export default class List extends Component {
   }
 
   render() {
-    console.log(`what is props from list: `, this.props)
     const {search} = this.props;
     const {tracks} = search;
     
