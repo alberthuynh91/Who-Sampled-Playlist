@@ -12,6 +12,8 @@ export const GET_URIS = 'GET_URIS';
 export const SET_ARTIST = 'SET_ARTIST';
 export const SET_TRACKS = 'SET_TRACKS';
 export const SET_URIS = 'SET_URIS';
+export const ADD_TRACKS = 'ADD_TRACKS';
+export const ADD_URIS = 'ADD_URIS';
 
 export const PLAY = 'PLAY';
 export const PAUSE = 'PAUSE';

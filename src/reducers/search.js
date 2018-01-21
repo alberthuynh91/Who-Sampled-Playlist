@@ -23,6 +23,22 @@ export function search(state = initialState, action = null) {
     case ActionTypes.SET_URIS:
       const uris = { uris: payload };
       return Object.assign({}, state, uris);
+    case ActionTypes.ADD_TRACKS: {
+      // Refactor, don't use for each here
+      const newTracks = state.tracks;
+      payload.tracks.forEach((track) => {
+        newTracks.push(track);
+      })
+      return Object.assign({}, state, { tracks: newTracks });
+    }
+    case ActionTypes.ADD_URIS: {
+      const newUris = state.uris;
+      // Refactor, don't use for each here      
+      payload.uris.forEach((uri) => {
+        newUris.push(uri);
+      })
+      return Object.assign({}, state, { uris: newUris });
+    }
     default:
       return state;
   }

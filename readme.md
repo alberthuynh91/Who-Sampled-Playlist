@@ -2,6 +2,13 @@
 
 This is a seed project for building static react website, not for build universal app.
 
+## To Dos
+- Fix 'Clear Playlist' button. Currently is not working. Check reducers.
+- Refactor forEach loop in addTracks/addUris in search
+- Add Album Art for Artists
+- Overall application styling
+- Create mock API using json data
+
 ## Feature
 - ES6+ support via [babel](https://babeljs.io)
 - Redux and its best practice (debug, style, routing)
