@@ -11,6 +11,7 @@ import Save from './Save.js';
 
 import * as playlistActionCreators from '../actions/PlaylistActions.js';
 import * as searchActionCreators from '../actions/SearchActions.js';
+import * as playerActionCreators from '../actions/PlayerActions.js';
 
 class SpotifyApp extends Component {
   render() {
@@ -30,12 +31,14 @@ class SpotifyApp extends Component {
 }
 
 const mapStateToProps = function mapStateToProps(state) {
-  return { tracks: state.tracks, search: state.search };
+  console.log(`what is state?: `, state)
+  return { tracks: state.tracks, search: state.search, player: state.player };
 };
 
 const mapDispatchToProps = (d) => bindActionCreators({
   ...searchActionCreators,
-  ...playlistActionCreators
+  ...playlistActionCreators,
+  ...playerActionCreators
 }, d)
 
 export default connect(mapStateToProps, mapDispatchToProps)(SpotifyApp);
