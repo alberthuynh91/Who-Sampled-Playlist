@@ -22,9 +22,8 @@ export default class ListItem extends Component {
   }
 
   showItemActions = (track) => {
-    const {preview_url} = track
-    const { playing, currentPreviewUrl } = this.props.player;
-    const previewState = playing && currentPreviewUrl === preview_url ? "glyphicon glyphicon-pause" : "glyphicon glyphicon-play";
+    const { playing, currentAudio } = this.props.player;
+    const previewState = playing && currentAudio.src === track.preview_url ? "glyphicon glyphicon-pause" : "glyphicon glyphicon-play";
     if (this.state.isMouseInside) {
       return (
         <div>
@@ -37,10 +36,7 @@ export default class ListItem extends Component {
           </span>
           <span 
             className="glyphicon glyphicon-trash"
-            onClick={(e) => {
-              console.log(`deleting id: `, track)
-              this.handleDelete(track)
-              }}>
+            onClick={(e) => { this.handleDelete(track) }}>
           </span>
         </div>
       )
@@ -50,22 +46,16 @@ export default class ListItem extends Component {
   }
 
   handlePreview(track) {
-    console.log(`what is props in handlePreview: `, this.props)
     const previewUrl = track.preview_url;
     const {play, pause} = this.props;
-    const {currentAudio, playing, currentPreviewUrl} = this.props.player
-
-    if (!currentAudio && !playing) {
+    const {currentAudio, playing} = this.props.player
+    if (!currentAudio || !playing) {
       const audio = new Audio(previewUrl);
-      audio.play();
-      play({audio, previewUrl})
-    } else if (currentAudio && currentPreviewUrl !== previewUrl) {
-      currentAudio.pause();
+      play({audio})
+    } else if (currentAudio && currentAudio.src !== previewUrl) {
       const audio = new Audio(previewUrl);
-      audio.play();
-      play({audio, previewUrl})
-    } else if (currentAudio && currentPreviewUrl === previewUrl) {
-      currentAudio.pause();
+      play({audio})
+    } else if (currentAudio && currentAudio.src === previewUrl) {
       pause()
     }
   }
@@ -76,7 +66,6 @@ export default class ListItem extends Component {
 
   handleDelete(track) {
     this.props.deleteTrack(track);
-    // this.props.clearTracks()
   }
 
   render() {

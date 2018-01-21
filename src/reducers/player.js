@@ -12,9 +12,14 @@ export function player(state = initialState, action = null) {
   const { type, payload } = action;
   switch (type) {
     case ActionTypes.PLAY: {
+      if (state.currentAudio) {
+        state.currentAudio.pause();
+      }
+      payload.audio.play();
       return Object.assign({}, state, { playing: true, currentAudio: payload.audio, currentPreviewUrl: payload.previewUrl });
     }
     case ActionTypes.PAUSE: {
+      state.currentAudio.pause();
       return Object.assign({}, state, { playing: false });
     }
     default:

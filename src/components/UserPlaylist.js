@@ -24,7 +24,7 @@ export default class UserPlaylist extends Component {
 
       return (
         <div>
-          <h3>Your Created Playlist</h3>
+          <h3>Your Created Playlist</h3> <button className="btn btn-primary" onClick={() => this.props.clearTracks()}>Clear Playlist</button>
           <table className="table table-striped hover">
             <thead>
             <tr>
