@@ -1,7 +1,7 @@
 {
-  "name": "redux-scaffold",
+  "name": "who-sampled-playlist-creator",
   "version": "0.3.0",
-  "description": "A react scaffold with redux and its best practice",
+  "description": "An application that allows users to create playlists on spotify from sampled artists",
   "engines": {
     "node": ">4.2"
   },
