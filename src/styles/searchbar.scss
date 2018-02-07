@@ -1,0 +1,32 @@
+.button__search {
+  color: #000000;
+  padding: 0px 6px;
+  font-weight: 500;
+  font-size: 2rem;
+  transform: translate(-95%);
+}
+
+.container__searchbar {
+  display: flex;
+}
+
+.input__searchbar {
+  width: 30rem;
+  height: 3rem;
+  font-weight: 200;
+  font-size: 2rem;
+}
+
+.parent__searchbar {
+  background-color: #1DB954;
+  padding: 10px 10px;
+  width: 100%;
+  opacity: 0.8;
+}
+
+.title__searchbar {
+  color: #FFFFFF;
+  font-size: 6rem;
+  font-weight: 400;
+  font-family: Helvetica Neue, Helvetica, Aerial, sans-serif;
+}

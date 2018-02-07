@@ -5,7 +5,7 @@ import { Jumbotron, Grid, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import Immutable from 'immutable';
 
-  
+import styles from '../styles/searchbar.scss';
 
 const getReqParams = (accessToken) => ({
   dataType: 'json',
@@ -53,24 +53,20 @@ export default class SearchBar extends Component {
         axios.get('https://api.spotify.com/v1/artists/' + artistID + '/top-tracks?country=SE', getReqParams(accessToken))
         .then(response => {
           console.log(`what is artist top tracks: `, response);
-
-          // this.setState({ tracks: response.data.tracks });
           this.props.addTracks({tracks: response.data.tracks});
           console.log(`what is tracks in the response: `, response.data.tracks);
-
           const uris = response.data.tracks.map((track) => {
             return track.uri;
           });
           console.log(`what is uris in the response: `, uris);
-
-          // this.setState({ uris });
           this.props.addUris({uris})
         });
       });
   }
 
   handleSubmit() {
-    const accessToken = localStorage.getItem('accessToken');  
+    const accessToken = localStorage.getItem('accessToken');
+
     if (this.state.value === `k` || this.state.value === 'kanye west' || this.state.value === 'kanye') {
       // Returned from api w/ kanye west
       const sampledArtists = [`Labi%20Siffre`, `Otis%20Redding`];
@@ -84,10 +80,12 @@ export default class SearchBar extends Component {
   render() {
     console.log(`what is props in searchbar: `, this.props)
     return (
-      <div>
-        <h3>Explore Artist</h3>
-        <div><input value={this.state.value} type="text" onKeyPress={(e) => e.key === 'Enter' ? this.handleSubmit() : null} onChange={(event) => this.updateInput(event.target.value)} /></div>
-        <div><button className="btn btn-primary" onClick={(e) => this.handleSubmit()}>Submit</button></div>
+      <div className={styles.parent__searchbar}>
+        <div className={styles.title__searchbar}><i className="fab fa-spotify"></i> Search for an artist</div>        
+        <div className={styles.container__searchbar}>
+          <div><input className={styles.input__searchbar} value={this.state.value} type="text" onKeyPress={(e) => e.key === 'Enter' ? this.handleSubmit() : null} onChange={(event) => this.updateInput(event.target.value)} /></div>
+          <div><button className={styles.button__search} onClick={(e) => this.handleSubmit()}><i className="fas fa-search"></i></button></div>
+        </div>
       </div>
     );
   }

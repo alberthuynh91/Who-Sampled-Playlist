@@ -13,6 +13,8 @@ import * as playlistActionCreators from '../actions/PlaylistActions.js';
 import * as searchActionCreators from '../actions/SearchActions.js';
 import * as playerActionCreators from '../actions/PlayerActions.js';
 
+import styles from '../styles/app.scss';
+
 class SpotifyApp extends Component {
   render() {
     console.log(`what is props in spotify app: `, this.props)
