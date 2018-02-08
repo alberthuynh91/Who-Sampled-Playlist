@@ -2,19 +2,21 @@
   color: #000000;
   padding: 0px 6px;
   font-weight: 500;
-  font-size: 2rem;
+  font-size: 3rem;
   transform: translate(-95%);
 }
 
 .container__searchbar {
   display: flex;
+  margin-left: 4rem;
 }
 
 .input__searchbar {
-  width: 30rem;
-  height: 3rem;
+  width: 65rem;
+  height: 4.4rem;
   font-weight: 200;
   font-size: 2rem;
+  padding: 0px 4px;
 }
 
 .parent__searchbar {
@@ -22,6 +24,10 @@
   padding: 10px 10px;
   width: 100%;
   opacity: 0.8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .title__searchbar {
