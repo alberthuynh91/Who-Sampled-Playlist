@@ -67,7 +67,7 @@ export default class SearchBar extends Component {
   handleSubmit() {
     const accessToken = localStorage.getItem('accessToken');
 
-    if (this.state.value === `k` || this.state.value === 'kanye west' || this.state.value === 'kanye') {
+    if (this.state.value === `k` || this.state.value === 'Kanye West' || this.state.value === 'kanye') {
       // Returned from api w/ kanye west
       const sampledArtists = [`Labi%20Siffre`, `Otis%20Redding`];
       sampledArtists.forEach((artist) => {
@@ -78,7 +78,6 @@ export default class SearchBar extends Component {
   }
 
   render() {
-    console.log(`what is props in searchbar: `, this.props)
     return (
       <div className={styles.parent__searchbar}>
         <div className={styles.title__searchbar}><i className="fab fa-spotify"></i> Search for an artist</div>        
