@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
+import {Grid, Row, Col} from 'react-bootstrap'
 
 import List from './List.js';
 import UserPlaylist from './UserPlaylist.js';
@@ -17,17 +18,27 @@ import styles from '../styles/app.scss';
 
 class SpotifyApp extends Component {
   render() {
-    console.log(`what is props in spotify app: `, this.props)
     const { tracks, filter, addTrack, deleteTrack, clearTracks } = this.props;
     const hasTracks = Object.keys(tracks.tracks).length > 0
     return (
-      <section className="spotifyapp">
-        <SearchBar {...this.props} />
-        <List {...this.props} />
-        <UserPlaylist {...this.props} />
-        {hasTracks ? <Save {...this.props} /> : null }
-        
-      </section>
+      <div className="spotifyapp">
+        <Grid>
+          <Row>
+            <SearchBar {...this.props} />
+          </Row>
+          <Row>
+            <Col xs={6} md={6}>
+              <List {...this.props} />
+            </Col>
+            <Col xs={6} md={6}>
+              <UserPlaylist {...this.props} />
+            </Col>
+          </Row>
+          <Row>
+          {hasTracks ? <Save {...this.props} /> : null }
+          </Row>
+        </Grid>
+      </div>
     );
   }
 }
