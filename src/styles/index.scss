@@ -1,13 +1,37 @@
+body, html {
+  height: 100%;
+  background-image: url("https://c1.staticflickr.com/9/8413/8703080949_99a9353a97_k.jpg");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .button__login-spotify {
   background-color: #1DB954;
   color: #FFFFFF;
-  padding: 6px 6px;
+  padding: 15px 15px;
   font-weight: 500;
-  border-radius: 4px;
-  margin: 10px 0px 10px 0px;
+  font-size: 2rem;
+  border-radius: 6px;
+  margin: 15px 0px 15px 0px;
 }
 
 .container__index {
+  h1 {
+    font-size: 8rem;
+    color: #FFFFFF;
+  }
+  h2 {
+    font-size: 3rem;
+    color: #333333;
+  }
   font-family: Helvetica Neue, Helvetica, Aerial, sans-serif;
   text-align: center;
+  background-color: rgb(211,211,211,0.3);
+  padding: 4rem 4rem;
+  
 }
