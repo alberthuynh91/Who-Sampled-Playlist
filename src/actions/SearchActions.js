@@ -1,8 +1,15 @@
-import { SET_ARTIST, SET_TRACKS, SET_URIS, ADD_TRACKS, ADD_URIS } from '../constants/ActionTypes';
+import { SET_ARTIST, SET_SEARCHED_ARITST, SET_TRACKS, SET_URIS, ADD_TRACKS, ADD_URIS } from '../constants/ActionTypes';
 
 export function setArtist(payload) {
   return {
     type: SET_ARTIST,
+    payload
+  };
+}
+
+export function setSearchedArtist(payload) {
+  return {
+    type: SET_SEARCHED_ARITST,
     payload
   };
 }

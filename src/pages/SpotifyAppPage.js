@@ -26,7 +26,7 @@ class SpotifyAppPage extends Component {
 
 
 const mapStateToProps = function mapStateToProps(state) {
-  return { tracks: state.tracks, filter: state.filter, player: state.player, search: state.search };
+  return { tracks: state.tracks, filter: state.filter, player: state.player };
 };
 
 const mapDispatchToProps = (d) => bindActionCreators({

@@ -10,6 +10,7 @@ export const CLEAR_TRACKS = 'CLEAR_TRACKS';
 export const GET_URIS = 'GET_URIS';
 
 export const SET_ARTIST = 'SET_ARTIST';
+export const SET_SEARCHED_ARITST = 'SET_SEARCHED_ARITST';
 export const SET_TRACKS = 'SET_TRACKS';
 export const SET_URIS = 'SET_URIS';
 export const ADD_TRACKS = 'ADD_TRACKS';

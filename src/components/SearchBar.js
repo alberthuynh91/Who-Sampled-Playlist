@@ -36,11 +36,12 @@ export default class SearchBar extends Component {
   }
 
   handleSearch(searchedArtist) {
+    console.log(`handleSearch: `, searchedArtist)
     this.setState({ searchedArtist });
   }
 
   getArtistApi(artist) {
-    const accessToken = localStorage.getItem('accessToken');  
+    const accessToken = localStorage.getItem('accessToken');
     axios.get('https://api.spotify.com/v1/search?q=' + artist + '&type=artist', getReqParams(accessToken))
       .then(response => {
         console.log(`what did i get from search????? : `, response);
@@ -66,7 +67,9 @@ export default class SearchBar extends Component {
   }
 
   handleSubmit() {
+    console.log(`what is props in handleSubmit: `, this.props)
     const accessToken = localStorage.getItem('accessToken');
+    
     if (this.state.searchedArtist === `k` || this.state.searchedArtist === 'Kanye West' || this.state.searchedArtist === 'kanye') {
       // Returned from api w/ kanye west
       const sampledArtists = [`Labi%20Siffre`, `Otis%20Redding`];
@@ -74,8 +77,8 @@ export default class SearchBar extends Component {
         this.getArtistApi(artist)
       })
     }
-    if (this.state.searchedArtist === `s` || this.state.searchedArtist === 'schoolboy q') {
-      // Returned from api w/ kanye west
+    if (this.state.searchedArtist === `s` || this.state.searchedArtist === 'schoolboy q') {   
+      // Returned from api w/ schoolboyq
       const sampledArtists = [`Chromatics`, `Lissie`];
       sampledArtists.forEach((artist) => {
         this.getArtistApi(artist)
@@ -84,6 +87,7 @@ export default class SearchBar extends Component {
   }
 
   render() {
+    console.log(`what is state????: `, this.state)
     return (
       <div className={styles.parent__searchbar}>
         <div className={styles.title__searchbar}><i className="fab fa-spotify"></i> Search for an artist</div>        
@@ -93,7 +97,10 @@ export default class SearchBar extends Component {
               className={styles.input__searchbar}
               value={this.state.searchedArtist}
               type="text"
-              onKeyPress={(e) => e.key === 'Enter' ? this.handleSubmit() : null} onChange={(e) => this.handleSearch(e.target.value)}
+              onKeyPress={(e) => e.key === 'Enter' ? this.handleSubmit() : null} onChange={(e) => {
+                this.props.setSearchedArtist(e.target.value)
+                this.handleSearch(e.target.value)}
+              }
             />
           </div>
           <div>

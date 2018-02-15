@@ -44,7 +44,6 @@ class SpotifyApp extends Component {
 }
 
 const mapStateToProps = function mapStateToProps(state) {
-  console.log(`what is state?: `, state)
   return { tracks: state.tracks, search: state.search, player: state.player };
 };
 
