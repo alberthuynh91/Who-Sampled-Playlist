@@ -70,10 +70,12 @@ export default class ListItem extends Component {
 
   render() {
     const {track} = this.props
+    console.log(`what is track: `, track)
     return (
       <tr onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>
-        <td>{track.artists[0].name}</td>
-        <td>{track.name}</td>
+        {/* <td>{track.artists[0].name}</td> */}
+        <td><img src={track.album.images[2].url} /></td>
+        <td><b>{track.artists[0].name}</b><br/>{track.name}</td>
         <td>
           {this.showItemActions(track)}
         </td>
