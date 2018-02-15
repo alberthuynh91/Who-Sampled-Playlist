@@ -36,8 +36,8 @@ export default class SearchBar extends Component {
   }
 
   handleSearch(searchedArtist) {
-    console.log(`handleSearch: `, searchedArtist)
     this.setState({ searchedArtist });
+    this.props.setSearchedArtist(searchedArtist)
   }
 
   getArtistApi(artist) {
@@ -70,7 +70,7 @@ export default class SearchBar extends Component {
     console.log(`what is props in handleSubmit: `, this.props)
     const accessToken = localStorage.getItem('accessToken');
     
-    if (this.state.searchedArtist === `k` || this.state.searchedArtist === 'Kanye West' || this.state.searchedArtist === 'kanye') {
+    if (this.state.searchedArtist === `k` || this.state.searchedArtist === 'Kanye West' || this.state.searchedArtist === 'kanye west') {
       // Create mock api for this
       const sampledArtists = [`Labi%20Siffre`, `Otis%20Redding`];
       sampledArtists.forEach((artist) => {
@@ -97,10 +97,7 @@ export default class SearchBar extends Component {
               className={styles.input__searchbar}
               value={this.state.searchedArtist}
               type="text"
-              onKeyPress={(e) => e.key === 'Enter' ? this.handleSubmit() : null} onChange={(e) => {
-                this.props.setSearchedArtist(e.target.value)
-                this.handleSearch(e.target.value)}
-              }
+              onKeyPress={(e) => e.key === 'Enter' ? this.handleSubmit() : null} onChange={(e) => this.handleSearch(e.target.value)}
             />
           </div>
           <div>

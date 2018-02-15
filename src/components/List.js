@@ -30,7 +30,7 @@ export default class List extends Component {
 
       return (
         <div>
-          <h3>Here are some songs sampled by Kanye West</h3>
+          <h3>Here are some songs from artists <span style={{color: 'coral'}}>{this.props.search.searchedArtist}</span> sampled</h3>
           <table className="table table-striped table-hover">
             <thead>
             <tr>
