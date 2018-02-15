@@ -23,7 +23,8 @@ export default class SearchBar extends Component {
     artist: {},
     artistImage: null,
     uris: [],
-    tracks: []
+    tracks: [],
+    searchedArtist: null
   }
 
   handleAdd() {
@@ -34,8 +35,8 @@ export default class SearchBar extends Component {
     this.props.deleteTrack(index);
   }
 
-  updateInput(value) {
-    this.setState({ value });
+  handleSearch(searchedArtist) {
+    this.setState({ searchedArtist });
   }
 
   getArtistApi(artist) {
@@ -66,14 +67,19 @@ export default class SearchBar extends Component {
 
   handleSubmit() {
     const accessToken = localStorage.getItem('accessToken');
-
-    if (this.state.value === `k` || this.state.value === 'Kanye West' || this.state.value === 'kanye') {
+    if (this.state.searchedArtist === `k` || this.state.searchedArtist === 'Kanye West' || this.state.searchedArtist === 'kanye') {
       // Returned from api w/ kanye west
       const sampledArtists = [`Labi%20Siffre`, `Otis%20Redding`];
       sampledArtists.forEach((artist) => {
         this.getArtistApi(artist)
       })
-      
+    }
+    if (this.state.searchedArtist === `s` || this.state.searchedArtist === 'schoolboy q') {
+      // Returned from api w/ kanye west
+      const sampledArtists = [`Chromatics`, `Lissie`];
+      sampledArtists.forEach((artist) => {
+        this.getArtistApi(artist)
+      })
     }
   }
 
@@ -82,8 +88,19 @@ export default class SearchBar extends Component {
       <div className={styles.parent__searchbar}>
         <div className={styles.title__searchbar}><i className="fab fa-spotify"></i> Search for an artist</div>        
         <div className={styles.container__searchbar}>
-          <div><input className={styles.input__searchbar} value={this.state.value} type="text" onKeyPress={(e) => e.key === 'Enter' ? this.handleSubmit() : null} onChange={(event) => this.updateInput(event.target.value)} /></div>
-          <div><button className={styles.button__search} onClick={(e) => this.handleSubmit()}><i className="fas fa-search"></i></button></div>
+          <div>
+            <input 
+              className={styles.input__searchbar}
+              value={this.state.searchedArtist}
+              type="text"
+              onKeyPress={(e) => e.key === 'Enter' ? this.handleSubmit() : null} onChange={(e) => this.handleSearch(e.target.value)}
+            />
+          </div>
+          <div>
+            <button 
+              className={styles.button__search}
+              onClick={(e) => this.handleSubmit()}><i className="fas fa-search"></i></button>
+          </div>
         </div>
       </div>
     );

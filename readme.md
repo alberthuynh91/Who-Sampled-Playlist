@@ -5,9 +5,11 @@ Have you ever wondered where your favorite hip hop artist sample their music fro
 DEMO: coming soon...
 
 ## Backlog
+- New search should wipe current search. Your playlist should still be in tact.
+- Fix styling of index page so that it doesn't affect /spotify route
+- Adding song to playlist removes from current search list
 - Fix 'Clear Playlist' button. Currently is not working. Check reducers.
 - Refactor forEach loop in addTracks/addUris in search
-- Add Album Art for Artists
 - Overall application styling
 - Create mock API using json data
 - Add autocomplete in searchbar

@@ -1,6 +1,4 @@
 /* eslint-disable */
-
-
 import React, { Component, PropTypes } from 'react';
 import Immutable from 'immutable';
 import ListItem from './ListItem.js'
@@ -23,7 +21,7 @@ export default class List extends Component {
   render() {
     const {search} = this.props;
     const {tracks} = search;
-    
+    console.log(`what is props: `, this.props)
     if (tracks.length > 0) {
       const trackItems = tracks.map((track, i) => {
         const index = i + 1;

@@ -70,7 +70,6 @@ export default class ListItem extends Component {
 
   render() {
     const {track} = this.props
-    console.log(`what is track: `, track)
     return (
       <tr onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>
         {/* <td>{track.artists[0].name}</td> */}
