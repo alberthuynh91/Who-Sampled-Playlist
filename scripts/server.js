@@ -158,10 +158,12 @@ app.use(require('webpack-hot-middleware')(compiler));
 
 app.use(express.static(path.resolve(__dirname, '../src/public')));
 
-app.listen(5000, function(err) {
+const port = process.env.PORT || 5000;
+
+app.listen(port, function(err) {
     if (err) {
         console.log(err);
         return;
     }
-    console.log('Listening at http://localhost:5000');
+    console.log('Listening at http://localhost:' + port);
 });
