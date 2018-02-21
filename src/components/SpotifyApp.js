@@ -24,16 +24,18 @@ class SpotifyApp extends Component {
       <div className="spotifyapp">
         <Grid>
           <Row>
-            <SearchBar {...this.props} />
+            <Col xs={12} md={12}>
+              <SearchBar {...this.props} />
+            </Col> 
           </Row>
           <Row>
           {hasTracks ? <Save {...this.props} /> : null }
           </Row>
           <Row>
-            <Col xs={6} md={6}>
+            <Col xs={12} md={6}>
               <List {...this.props} />
             </Col>
-            <Col xs={6} md={6}>
+            <Col xs={12} md={6}>
               <UserPlaylist {...this.props} />
             </Col>
           </Row>

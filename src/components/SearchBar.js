@@ -92,14 +92,12 @@ export default class SearchBar extends Component {
       <div className={styles.parent__searchbar}>
         <div className={styles.title__searchbar}><i className="fab fa-spotify"></i> Search for an artist</div>        
         <div className={styles.container__searchbar}>
-          <div>
             <input 
               className={styles.input__searchbar}
               value={this.state.searchedArtist}
               type="text"
               onKeyPress={(e) => e.key === 'Enter' ? this.handleSubmit() : null} onChange={(e) => this.handleSearch(e.target.value)}
             />
-          </div>
           <div>
             <button 
               className={styles.button__search}
