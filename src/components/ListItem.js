@@ -3,6 +3,8 @@
 import React, { Component, PropTypes } from 'react';
 import Immutable from 'immutable';
 import Tappable from 'react-tappable';
+import styles from '../styles/listitem.scss';
+
 
 export default class ListItem extends Component {
 
@@ -31,13 +33,13 @@ export default class ListItem extends Component {
   showItemActions = (track) => {
     const {list, player} = this.props
     const { playing, currentAudio } = player;    
-    const addTrack = (<span className="glyphicon glyphicon-plus" onClick={(e) => {this.handleAdd(track)}}></span>)
-    const deleteTrack = (<span className="glyphicon glyphicon-trash" onClick={(e) => {this.handleDelete(track)}}></span>)
-    const previewState = playing && currentAudio.src === track.preview_url ? "glyphicon glyphicon-pause" : "glyphicon glyphicon-play";
+    const addTrack = (<span className={`${styles.actionitem__button} glyphicon glyphicon-plus`} onClick={(e) => {this.handleAdd(track)}}></span>)
+    const deleteTrack = (<span className={`${styles.actionitem__button} glyphicon glyphicon-trash`} onClick={(e) => {this.handleDelete(track)}}></span>)
+    const previewState = playing && currentAudio.src === track.preview_url ? `${styles.actionitem__button} glyphicon glyphicon-pause` : `${styles.actionitem__button} glyphicon glyphicon-play`;
     const actions = list === `search` ? addTrack : deleteTrack
     if (this.state.isMouseInside) {
       return (
-        <div>
+        <div className={styles.actionitems__container}>
           <span
             className={previewState}
             onClick={(e) => {this.handlePreview(track)}}></span>
@@ -78,6 +80,7 @@ export default class ListItem extends Component {
         style={{opacity: this.state.opacity}}
         onMouseEnter={this.mouseEnter}
         onMouseLeave={this.mouseLeave}
+        onCli
         onClick={() => {
           this.setState({isMouseInside: !this.state.isMouseInside, opacity: 0.5 })
         }}

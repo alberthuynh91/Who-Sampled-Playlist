@@ -28,9 +28,7 @@ class SpotifyApp extends Component {
               <SearchBar {...this.props} />
             </Col> 
           </Row>
-          <Row>
-          {hasTracks ? <Save {...this.props} /> : null }
-          </Row>
+          
           <Row>
             <Col xs={12} md={6}>
               <List {...this.props} />
@@ -38,6 +36,10 @@ class SpotifyApp extends Component {
             <Col xs={12} md={6}>
               <UserPlaylist {...this.props} />
             </Col>
+          </Row>
+
+          <Row>
+          {hasTracks ? <Save {...this.props} /> : null }
           </Row>
         </Grid>
       </div>
