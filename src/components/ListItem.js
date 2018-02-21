@@ -78,8 +78,9 @@ export default class ListItem extends Component {
         style={{opacity: this.state.opacity}}
         onMouseEnter={this.mouseEnter}
         onMouseLeave={this.mouseLeave}
-        onTouchStartCapture={this.mouseEnter}
-        onTouchEndCapture={this.mouseLeave}
+        onClick={() => {
+          this.setState({isMouseInside: !this.state.isMouseInside, opacity: 0.5 })
+        }}
       >
         {/* <td>{track.artists[0].name}</td> */}
         <td><img src={track.album.images[2].url} /></td>

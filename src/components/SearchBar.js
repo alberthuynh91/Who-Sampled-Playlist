@@ -70,14 +70,14 @@ export default class SearchBar extends Component {
     console.log(`what is props in handleSubmit: `, this.props)
     const accessToken = localStorage.getItem('accessToken');
     
-    if (this.state.searchedArtist === `k` || this.state.searchedArtist === 'Kanye West' || this.state.searchedArtist === 'kanye west') {
+    if (this.state.searchedArtist === `K` || this.state.searchedArtist === `k` || this.state.searchedArtist === 'Kanye West' || this.state.searchedArtist === 'kanye west') {
       // Create mock api for this
       const sampledArtists = [`Labi%20Siffre`, `Otis%20Redding`];
       sampledArtists.forEach((artist) => {
         this.getArtistApi(artist)
       })
     }
-    if (this.state.searchedArtist === `s` || this.state.searchedArtist === 'schoolboy q') {   
+    if (this.state.searchedArtist === `s` || this.state.searchedArtist === 'schoolboy q' || this.state.searchedArtist === 'Schoolboyq') {   
       // Create mock api for this
       const sampledArtists = [`Chromatics`, `Lissie`];
       sampledArtists.forEach((artist) => {
