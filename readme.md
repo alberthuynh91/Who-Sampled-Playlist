@@ -14,13 +14,11 @@ DEMO: coming soon...
 - Create mock API using json data
 - Add autocomplete in searchbar
 - Add link to github repo on application
-- Deploy application on Heroku/S3
+- Deploy application on Heroku/S3so
 - Show logged in user
 - Allow user to logout
+- Add feature to show most popular searched artists (kanye west, schoolboyq)
 
-## Feature
-- ES6+ support via [babel](https://babeljs.io)
-- Redux and its best practice (debug, style, routing)
 
 ## Setup
 
