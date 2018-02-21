@@ -19,13 +19,12 @@ export default class List extends Component {
   }
 
   render() {
-    const {search} = this.props;
-    const {tracks} = search;
-    console.log(`what is props: `, this.props)
+    const {search} = this.props
+    const {tracks} = search
     if (tracks.length > 0) {
       const trackItems = tracks.map((track, i) => {
         const index = i + 1;
-        return (<ListItem index={index} track={track} {...this.props}/>);
+        return (<ListItem index={index} track={track} list={`search`} {...this.props}/>);
       });
 
       return (

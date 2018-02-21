@@ -17,7 +17,7 @@ export default class UserPlaylist extends Component {
     const {tracks} = this.props;
     if (Object.keys(tracks.tracks).length > 0) {
       const trackItems = map((track) => {
-        return <ListItem track={track} {...this.props} />
+        return <ListItem track={track} {...this.props} list={`user`}/>
       }, tracks.tracks)
 
       const trackItemsArray = Object.values(trackItems)

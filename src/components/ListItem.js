@@ -7,10 +7,10 @@ import Immutable from 'immutable';
 export default class ListItem extends Component {
 
   state = {
+    currentAudio: null,
+    currentTrackPlaying: null,
     isMouseInside: false,
     playing: false,
-    currentTrackPlaying: null,
-    currentAudio: null
   }
 
   mouseEnter = () => {
@@ -22,27 +22,23 @@ export default class ListItem extends Component {
   }
 
   showItemActions = (track) => {
-    const { playing, currentAudio } = this.props.player;
+    const {list, player} = this.props
+    const { playing, currentAudio } = player;    
+    const addTrack = (<span className="glyphicon glyphicon-plus" onClick={(e) => {this.handleAdd(track)}}></span>)
+    const deleteTrack = (<span className="glyphicon glyphicon-trash" onClick={(e) => {this.handleDelete(track)}}></span>)
     const previewState = playing && currentAudio.src === track.preview_url ? "glyphicon glyphicon-pause" : "glyphicon glyphicon-play";
+    const actions = list === `search` ? addTrack : deleteTrack
     if (this.state.isMouseInside) {
       return (
         <div>
           <span
             className={previewState}
             onClick={(e) => {this.handlePreview(track)}}></span>
-          <span 
-            className="glyphicon glyphicon-plus" 
-            onClick={(e) => {this.handleAdd(track)}}>
-          </span>
-          <span 
-            className="glyphicon glyphicon-trash"
-            onClick={(e) => { this.handleDelete(track) }}>
-          </span>
+          {actions}
         </div>
       )
     }
-    return <div>
-    </div>
+    return null
   }
 
   handlePreview(track) {
