@@ -80,7 +80,7 @@ export default class ListItem extends Component {
         onMouseLeave={this.mouseLeave}
         onTouchStart={this.mouseEnter}
         onTouchMove={this.mouseEnter}
-        ronTouchEnd={this.mouseLeave}
+        onTouchEnd={this.mouseLeave}
       >
         {/* <td>{track.artists[0].name}</td> */}
         <td><img src={track.album.images[2].url} /></td>
