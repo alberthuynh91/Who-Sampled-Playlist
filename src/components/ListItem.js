@@ -2,7 +2,7 @@
 
 import React, { Component, PropTypes } from 'react';
 import Immutable from 'immutable';
-
+import Tappable from 'react-tappable';
 
 export default class ListItem extends Component {
 
@@ -11,14 +11,20 @@ export default class ListItem extends Component {
     currentTrackPlaying: null,
     isMouseInside: false,
     playing: false,
+    opacity: 1
   }
 
   mouseEnter = () => {
-    this.setState({ isMouseInside: true })
+    this.setState({ isMouseInside: true, opacity: 0.5 })
   }
 
   mouseLeave = () => {
-    this.setState({ isMouseInside: false })
+    this.setState({ isMouseInside: false, opacity: 1 })
+  }
+
+  handleTapEvent() {
+    console.log("touchTap", e)
+    this.setState({ isMouseInside: true, opacity: 0.5 })
   }
 
   showItemActions = (track) => {
@@ -67,7 +73,7 @@ export default class ListItem extends Component {
   render() {
     const {track} = this.props
     return (
-      <tr onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>
+      <tr onTap={this.handleTapEvent} style={{opacity: this.state.opacity}} onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>
         {/* <td>{track.artists[0].name}</td> */}
         <td><img src={track.album.images[2].url} /></td>
         <td><b>{track.artists[0].name}</b><br/>{track.name}</td>
