@@ -24,7 +24,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 const client_id = '0a96adbe353a451db8f55db2bab7f724'; // Your client id
 const client_secret = '0c3ce39173a1465a92c7417c4d3757e7'; // Your secret
-const redirect_uri = process.env.PORT ? 'https://who-sampled-playlist.herokuapp.com/callback/' : 'http://localhost:5000/callback'; // Your redirect uri
+const redirect_uri = process.env.PORT ? 'https://who-sampled-playlist.heroku.com/oauth/authorize' : 'http://localhost:5000/callback'; // Your redirect uri
 console.log(`>>>>>>>>>>>>>>>>>>>what is redirect uri?: `, redirect_uri)
 
 /**
