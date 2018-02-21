@@ -15,7 +15,7 @@ export default class ListItem extends Component {
   }
 
   mouseEnter = () => {
-    console.log("touchTap", e)    
+    console.log(`hey`)
     this.setState({ isMouseInside: true, opacity: 0.5 })
   }
 
@@ -74,7 +74,7 @@ export default class ListItem extends Component {
   render() {
     const {track} = this.props
     return (
-      <tr onTap={this.handleTapEvent} style={{opacity: this.state.opacity}} onTouchStart={this.mouseEnter} onMouseLeave={this.mouseLeave}>
+      <tr style={{opacity: this.state.opacity}} onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>
         {/* <td>{track.artists[0].name}</td> */}
         <td><img src={track.album.images[2].url} /></td>
         <td><b>{track.artists[0].name}</b><br/>{track.name}</td>
