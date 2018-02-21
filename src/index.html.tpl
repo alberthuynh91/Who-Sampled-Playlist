@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Who Sampled Playlist Creator</title>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" http-equiv="Content-type" content="text/html; charset=utf-8, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
   </head>
   <body>
