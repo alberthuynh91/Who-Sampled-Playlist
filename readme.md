@@ -15,6 +15,8 @@ DEMO: coming soon...
 - Add autocomplete in searchbar
 - Add link to github repo on application
 - Deploy application on Heroku/S3
+- Show logged in user
+- Allow user to logout
 
 ## Feature
 - ES6+ support via [babel](https://babeljs.io)
