@@ -34,8 +34,7 @@ export default class List extends Component {
             <thead>
             <tr>
               <th scope="col">Artist</th>
-              <th scope="col">Song Name</th>
-              <th scope="col"></th>              
+              <th scope="col">Song Name</th>          
               </tr>
             </thead>
             <tbody>

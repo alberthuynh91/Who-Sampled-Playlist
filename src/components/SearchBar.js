@@ -89,7 +89,7 @@ export default class SearchBar extends Component {
   render() {
     return (
       <div className={styles.parent__searchbar}>
-        <div className={styles.title__searchbar}><i className="fab fa-spotify"></i> Search for an artist</div>        
+        <div className={styles.title__searchbar}><i className="fab fa-spotify"></i></div>        
         <div className={styles.container__searchbar}>
             <button 
               className={styles.button__search}
