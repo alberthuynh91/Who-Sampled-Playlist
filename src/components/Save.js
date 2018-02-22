@@ -76,15 +76,16 @@ export default class Save extends Component {
   render() {
     return (
       <div className={`${styles.create__playlist }`}>
-        <h2>Create Playlist</h2>
+        <h2>Save Playlist</h2>
         <div>
-          Playlist Name: 
-          <input 
+          <input
+            className={styles.save__input}
             value={this.state.playlistName}
+            placeholder="What would you like to name your playlist?"
             type="text"
             onChange={(event) => this.updateInput({ playlistName: event.target.value })}
           />
-          <button className="btn btn-primary" onClick={() => this.createAndSave()}>Create</button>
+          <button className="btn btn-primary" onClick={() => this.createAndSave()}>Save</button>
         </div>
     </div>
     );
