@@ -5,6 +5,7 @@ import Immutable from 'immutable';
 import ListItem from './ListItem.js'
 import axios from 'axios';
 
+import styles from '../styles/app.scss';
 
 export default class Save extends Component {
   state = {
@@ -74,17 +75,17 @@ export default class Save extends Component {
 
   render() {
     return (
-      <div>
-      <h3>Create Playlist</h3>
-      <div>
-        Playlist Name: 
-        <input 
-          value={this.state.playlistName}
-          type="text"
-          onChange={(event) => this.updateInput({ playlistName: event.target.value })}
-        />
-        <button className="btn btn-primary" onClick={() => this.createAndSave()}>Create</button>
-      </div>
+      <div className={`${styles.create__playlist }`}>
+        <h2>Create Playlist</h2>
+        <div>
+          Playlist Name: 
+          <input 
+            value={this.state.playlistName}
+            type="text"
+            onChange={(event) => this.updateInput({ playlistName: event.target.value })}
+          />
+          <button className="btn btn-primary" onClick={() => this.createAndSave()}>Create</button>
+        </div>
     </div>
     );
   }

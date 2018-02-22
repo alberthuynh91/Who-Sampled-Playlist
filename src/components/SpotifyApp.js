@@ -22,24 +22,25 @@ class SpotifyApp extends Component {
     const hasTracks = Object.keys(tracks.tracks).length > 0
     return (
       <div className="spotifyapp">
-        <Grid>
+        <Grid style={{width: "100%"}}>
           <Row>
-            <Col xs={12} md={12}>
+            <Col>
               <SearchBar {...this.props} />
             </Col> 
           </Row>
           
           <Row>
-            <Col xs={12} md={6}>
+            <Col style={{paddingLeft: 4, paddingRight: 4}} xs={12} md={6}>
               <List {...this.props} />
             </Col>
-            <Col xs={12} md={6}>
+            <Col style={{paddingLeft: 4, paddingRight: 4}} xs={12} md={6}>
               <UserPlaylist {...this.props} />
             </Col>
           </Row>
-
           <Row>
-          {hasTracks ? <Save {...this.props} /> : null }
+            <Col style={{paddingLeft: 4, paddingRight: 4}} xs={12} md={6}>
+              {hasTracks ? <Save {...this.props} /> : null }
+            </Col>
           </Row>
         </Grid>
       </div>

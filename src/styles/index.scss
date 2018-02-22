@@ -21,17 +21,44 @@ body, html {
   margin: 15px 0px 15px 0px;
 }
 
-.container__index {
-  h1 {
-    font-size: 8rem;
-    color: #FFFFFF;
+@media screen and (min-width: 416px) {
+  .container__index {
+    h1 {
+      font-size: 8rem;
+      color: #FFFFFF;
+    }
+    h2 {
+      font-size: 3rem;
+      color: #333333;
+    }
+    font-family: Helvetica Neue, Helvetica, Aerial, sans-serif;
+    text-align: center;
+    background-color: rgb(211,211,211,0.3);
+    padding: 4rem 4rem; 
   }
-  h2 {
-    font-size: 3rem;
-    color: #333333;
+  
+  .glyphicon {
+    font-size: 50px
   }
-  font-family: Helvetica Neue, Helvetica, Aerial, sans-serif;
-  text-align: center;
-  background-color: rgb(211,211,211,0.3);
-  padding: 4rem 4rem; 
+}
+
+@media screen and (max-width:415px) {
+  .container__index {
+    h1 {
+      font-size: 4rem;
+      color: #FFFFFF;
+    }
+    h2 {
+      font-size: 1.5rem;
+      color: #333333;
+    }
+    font-family: Helvetica Neue, Helvetica, Aerial, sans-serif;
+    text-align: center;
+    background-color: rgb(211,211,211,0.3);
+    padding: 4rem 4rem; 
+  }
+  
+  .glyphicon {
+    font-size: 30px
+  }
 }

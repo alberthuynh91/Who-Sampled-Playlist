@@ -87,22 +87,20 @@ export default class SearchBar extends Component {
   }
 
   render() {
-    console.log(`what is state????: `, this.state)
     return (
       <div className={styles.parent__searchbar}>
         <div className={styles.title__searchbar}><i className="fab fa-spotify"></i> Search for an artist</div>        
         <div className={styles.container__searchbar}>
-            <input 
-              className={styles.input__searchbar}
-              value={this.state.searchedArtist}
-              type="text"
-              onKeyPress={(e) => e.key === 'Enter' ? this.handleSubmit() : null} onChange={(e) => this.handleSearch(e.target.value)}
-            />
-          <div>
             <button 
               className={styles.button__search}
               onClick={(e) => this.handleSubmit()}><i className="fas fa-search"></i></button>
-          </div>
+          <input 
+            className={styles.input__searchbar}
+            value={this.state.searchedArtist}
+            type="text"
+            placeholder={`Search`}
+            onKeyPress={(e) => e.key === 'Enter' ? this.handleSubmit() : null} onChange={(e) => this.handleSearch(e.target.value)}
+          />
         </div>
       </div>
     );

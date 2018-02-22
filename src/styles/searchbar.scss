@@ -1,39 +1,95 @@
-.button__search {
-  color: #000000;
-  padding: 0px 6px;
-  font-weight: 500;
-  font-size: 3rem;
-  transform: translate(-95%);
+@media screen and (min-width: 431px) {
+  .parent__searchbar {
+    background-color: #1DB954;
+    padding: 1px 1px;
+    width: 100%;
+    opacity: 0.8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title__searchbar {
+    color: #FFFFFF;
+    font-size: 3.5rem;
+    font-weight: 400;
+    font-family: Helvetica Neue, Helvetica, Aerial, sans-serif;
+    text-align: center;
+  }
+
+  .container__searchbar {
+    display: flex;
+    width: 100%;
+    padding: 6px 6px;
+  }  
+  
+  .input__searchbar {
+    height: 4rem;
+    font-weight: 400;
+    font-size: 2.8rem;
+    width: 100%;
+    padding: 0px 42px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+  }
+
+  .button__search {
+    color: #000000;
+    font-weight: 500;
+    font-size: 2.8rem;
+    transform: translate(-95%);
+    position: absolute;
+    left: 38px;
+    top: 56px;
+  }
 }
 
-.container__searchbar {
-  display: flex;
-  margin-left: 4rem;
-  width: 100%
-}
+@media screen and (max-width:430px) {
+  .parent__searchbar {
+    background-color: #1DB954;
+    padding: 1px 1px;
+    width: 100%;
+    opacity: 0.8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-.input__searchbar {
-  height: 4.4rem;
-  font-weight: 200;
-  font-size: 2rem;
-  padding: 0px 4px;
-}
+  .title__searchbar {
+    color: #FFFFFF;
+    font-size: 3.5rem;
+    font-weight: 400;
+    font-family: Helvetica Neue, Helvetica, Aerial, sans-serif;
+    text-align: center;
+  }
 
-.parent__searchbar {
-  background-color: #1DB954;
-  padding: 10px 10px;
-  width: 100%;
-  opacity: 0.8;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.title__searchbar {
-  color: #FFFFFF;
-  font-size: 3.2rem;
-  font-weight: 400;
-  font-family: Helvetica Neue, Helvetica, Aerial, sans-serif;
-  text-align: center;
+  .container__searchbar {
+    display: flex;
+    width: 100%;
+    padding: 6px 6px;
+  }  
+  
+  .input__searchbar {
+    height: 3.4rem;
+    font-weight: 400;
+    font-size: 1.8rem;
+    width: 100%;
+    padding: 0px 34px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+  }
+  
+  .button__search {
+    color: #000000;
+    font-weight: 500;
+    font-size: 1.7rem;
+    transform: translate(-95%);
+    position: absolute;
+    left: 32px;
+    top: 62px;
+  }
 }
