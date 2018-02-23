@@ -15,6 +15,7 @@ export const SET_TRACKS = 'SET_TRACKS';
 export const SET_URIS = 'SET_URIS';
 export const ADD_TRACKS = 'ADD_TRACKS';
 export const ADD_URIS = 'ADD_URIS';
+export const CLEAR_SEARCH = 'CLEAR_SEARCH';
 
 export const PLAY = 'PLAY';
 export const PAUSE = 'PAUSE';

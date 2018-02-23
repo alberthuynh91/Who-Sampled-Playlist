@@ -25,7 +25,7 @@ export function tracks(state = initialState, action = null) {
       return Object.assign({}, state, { uris: uriList });
     }
     case ActionTypes.CLEAR_TRACKS:
-      return Object.assign({}, state, initialState);
+      return Object.assign({}, initialState, { tracks: {}, uris: [] });
     case ActionTypes.TOGGLE_CHECKED:
       return state.update(payload.index, todo => todo.set('completed', !todo.get('completed')));
     default:

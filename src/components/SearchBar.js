@@ -40,18 +40,19 @@ export default class SearchBar extends Component {
     this.props.setSearchedArtist(searchedArtist)
   }
 
+  clear() {
+    this.props.clearSearch()
+    this.props.clearTracks()
+  }
+
   getArtistApi(artist) {
+    console.log(`what is this.props dude: `, this.props)
     const accessToken = localStorage.getItem('accessToken');
     axios.get('https://api.spotify.com/v1/search?q=' + artist + '&type=artist', getReqParams(accessToken))
       .then(response => {
         console.log(`what did i get from search????? : `, response);
         const artistID = response.data.artists.items[0].id;
-
-        // this.setState({ artist: response.data.artists.items[0] });
         this.props.setArtist(response.data.artists.items[0]);
-
-        // this.setState({ artistImage: response.data.artists.items[0].images[0] });
-
         axios.get('https://api.spotify.com/v1/artists/' + artistID + '/top-tracks?country=SE', getReqParams(accessToken))
         .then(response => {
           console.log(`what is artist top tracks: `, response);
@@ -68,15 +69,16 @@ export default class SearchBar extends Component {
 
   handleSubmit(artist) {
     const accessToken = localStorage.getItem('accessToken');
-    
-    if (artist === `k` || this.state.searchedArtist === `K` || this.state.searchedArtist === `k` || this.state.searchedArtist === 'Kanye West' || this.state.searchedArtist === 'kanye west') {
+    this.clear()
+    this.handleSearch(artist)
+    if (artist === `Kanye West` || this.state.searchedArtist === `K` || this.state.searchedArtist === `k` || this.state.searchedArtist === 'Kanye West' || this.state.searchedArtist === 'kanye west') {
       // Create mock api for this
       const sampledArtists = [`Labi%20Siffre`, `Otis%20Redding`, `Ponderosa%20Twins%20Plus%20One`];
       sampledArtists.forEach((artist) => {
         this.getArtistApi(artist)
       })
     }
-    if (artist === `s` || this.state.searchedArtist === `s` || this.state.searchedArtist === 'schoolboy q' || this.state.searchedArtist === 'Schoolboyq') {   
+    if (artist === `Schoolboy Q` || this.state.searchedArtist === `s` || this.state.searchedArtist === 'schoolboy q' || this.state.searchedArtist === 'Schoolboyq') {   
       // Create mock api for this
       const sampledArtists = [`Chromatics`, `Lissie`, `Nelly`];
       sampledArtists.forEach((artist) => {
@@ -84,7 +86,7 @@ export default class SearchBar extends Component {
       })
     }
 
-    if (artist === `kendrick` || this.state.searchedArtist === `kendrick` || this.state.searchedArtist === 'kendrick lamar' || this.state.searchedArtist === 'k dot') {   
+    if (artist === `Kendrick Lamar` || this.state.searchedArtist === `kendrick` || this.state.searchedArtist === 'kendrick lamar' || this.state.searchedArtist === 'k dot') {   
       // Create mock api for this
       const sampledArtists = [`James%20Brown`, `Beach%20House`, `Bill%20Withers`];
       sampledArtists.forEach((artist) => {
@@ -114,23 +116,23 @@ export default class SearchBar extends Component {
         <div style={{padding: '10px 10px'}}>
           <span>
             <img
-              style={{width: 75, height: 75}}
-              src="https://vignette.wikia.nocookie.net/totaldramacampsnfanfics/images/a/a1/Kanye_West_Happy_Head.png/revision/latest?cb=20150930013411"
-              onClick={() => this.handleSubmit(`k`)}
+              className={styles.popularsearch__item}
+              src="https://c1.staticflickr.com/5/4709/40402693602_d47a8ee26b_o.png"
+              onClick={() => this.handleSubmit(`Kanye West`)}
               />
           </span>
           <span>
             <img
-              style={{width: 75, height: 75}}
-              src="http://24.media.tumblr.com/b5dc66a013f5b8d6c66b09822d63bbc0/tumblr_mzruwe2pPA1rpc1rco1_r2_500.gif"
-              onClick={() => this.handleSubmit(`s`)}
+              className={styles.popularsearch__item}
+              src="https://c1.staticflickr.com/5/4760/25575504517_167e1355a3_o.png"
+              onClick={() => this.handleSubmit(`Schoolboy Q`)}
               />
           </span>
           <span>
             <img
-              style={{width: 75, height: 75}}
-              src="http://drakevseverybody.com/images/Kendrick_Lamar_Drake_Vs_Everybody_Rap_Beef_OVO_Feud.png"
-              onClick={() => this.handleSubmit(`kendrick`)}
+              className={styles.popularsearch__item}
+              src="https://c1.staticflickr.com/5/4747/40446520501_5a08470c83_o.png"
+              onClick={() => this.handleSubmit(`Kendrick Lamar`)}
               />
           </span>
         </div>
