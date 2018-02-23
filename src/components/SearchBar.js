@@ -43,6 +43,7 @@ export default class SearchBar extends Component {
   clear() {
     this.props.clearSearch()
     this.props.clearTracks()
+    this.props.resetPlayer()
   }
 
   getArtistApi(artist) {

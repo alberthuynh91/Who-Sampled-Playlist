@@ -50,15 +50,15 @@ export default class ListItem extends Component {
     const {currentAudio, playing} = this.props.player
     if (!currentAudio || !playing) {
       const audio = new Audio(previewUrl);
-      this.setState({playing: true})
+      this.setState({playing: true, currentAudio: audio})
       play({audio})
     } else if (currentAudio && currentAudio.src !== previewUrl) {
       const audio = new Audio(previewUrl);
-      this.setState({playing: true})      
+      this.setState({playing: true, currentAudio: audio})      
       play({audio})
     } else if (currentAudio && currentAudio.src === previewUrl) {
       pause()
-      this.setState({playing: false})
+      this.setState({playing: false, currentAudio: audio})
     }
   }
 
