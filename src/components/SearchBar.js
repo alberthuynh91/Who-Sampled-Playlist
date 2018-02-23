@@ -66,20 +66,27 @@ export default class SearchBar extends Component {
       });
   }
 
-  handleSubmit() {
-    console.log(`what is props in handleSubmit: `, this.props)
+  handleSubmit(artist) {
     const accessToken = localStorage.getItem('accessToken');
     
-    if (this.state.searchedArtist === `K` || this.state.searchedArtist === `k` || this.state.searchedArtist === 'Kanye West' || this.state.searchedArtist === 'kanye west') {
+    if (artist === `k` || this.state.searchedArtist === `K` || this.state.searchedArtist === `k` || this.state.searchedArtist === 'Kanye West' || this.state.searchedArtist === 'kanye west') {
       // Create mock api for this
-      const sampledArtists = [`Labi%20Siffre`, `Otis%20Redding`];
+      const sampledArtists = [`Labi%20Siffre`, `Otis%20Redding`, `Ponderosa%20Twins%20Plus%20One`];
       sampledArtists.forEach((artist) => {
         this.getArtistApi(artist)
       })
     }
-    if (this.state.searchedArtist === `s` || this.state.searchedArtist === 'schoolboy q' || this.state.searchedArtist === 'Schoolboyq') {   
+    if (artist === `s` || this.state.searchedArtist === `s` || this.state.searchedArtist === 'schoolboy q' || this.state.searchedArtist === 'Schoolboyq') {   
       // Create mock api for this
-      const sampledArtists = [`Chromatics`, `Lissie`];
+      const sampledArtists = [`Chromatics`, `Lissie`, `Nelly`];
+      sampledArtists.forEach((artist) => {
+        this.getArtistApi(artist)
+      })
+    }
+
+    if (artist === `kendrick` || this.state.searchedArtist === `kendrick` || this.state.searchedArtist === 'kendrick lamar' || this.state.searchedArtist === 'k dot') {   
+      // Create mock api for this
+      const sampledArtists = [`James%20Brown`, `Beach%20House`, `Bill%20Withers`];
       sampledArtists.forEach((artist) => {
         this.getArtistApi(artist)
       })
@@ -101,6 +108,31 @@ export default class SearchBar extends Component {
             placeholder={`Search`}
             onKeyPress={(e) => e.key === 'Enter' ? this.handleSubmit() : null} onChange={(e) => this.handleSearch(e.target.value)}
           />
+          
+        </div>
+        <h2 style={{color: '#FFFFFF'}}>Popular Searches</h2>
+        <div style={{padding: '10px 10px'}}>
+          <span>
+            <img
+              style={{width: 75, height: 75}}
+              src="https://vignette.wikia.nocookie.net/totaldramacampsnfanfics/images/a/a1/Kanye_West_Happy_Head.png/revision/latest?cb=20150930013411"
+              onClick={() => this.handleSubmit(`k`)}
+              />
+          </span>
+          <span>
+            <img
+              style={{width: 75, height: 75}}
+              src="http://24.media.tumblr.com/b5dc66a013f5b8d6c66b09822d63bbc0/tumblr_mzruwe2pPA1rpc1rco1_r2_500.gif"
+              onClick={() => this.handleSubmit(`s`)}
+              />
+          </span>
+          <span>
+            <img
+              style={{width: 75, height: 75}}
+              src="http://drakevseverybody.com/images/Kendrick_Lamar_Drake_Vs_Everybody_Rap_Beef_OVO_Feud.png"
+              onClick={() => this.handleSubmit(`kendrick`)}
+              />
+          </span>
         </div>
       </div>
     );
