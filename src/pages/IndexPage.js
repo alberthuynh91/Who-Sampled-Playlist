@@ -2,7 +2,15 @@ import React, { Component } from 'react';
 import styles from '../styles/index.scss';
 
 export default class IndexPage extends Component {
-
+  componentWillMount() {
+    document.body.style.backgroundImage = 'url(https://c1.staticflickr.com/9/8413/8703080949_99a9353a97_k.jpg)';
+    document.body.style.height = '100%';
+    document.body.style.backgroundRepeat = 'no-repeat';
+    document.body.style.backgroundPosition = 'center';
+    document.body.style.display = 'flex';
+    document.body.style.alignItems = 'center';
+    document.body.style.justifyContent = 'center';
+  }
   render() {
     return (
       <div className={styles.container__index}>
