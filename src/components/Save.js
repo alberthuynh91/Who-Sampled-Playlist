@@ -85,7 +85,7 @@ export default class Save extends Component {
             type="text"
             onChange={(event) => this.updateInput({ playlistName: event.target.value })}
           />
-          <button className="btn btn-success" onClick={() => this.createAndSave()}>Save</button>
+          <button className="btn btn-success" onClick={() => this.createAndSave()}> Save</button>
         </div>
     </div>
     );

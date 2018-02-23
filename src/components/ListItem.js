@@ -17,17 +17,11 @@ export default class ListItem extends Component {
   }
 
   mouseEnter = () => {
-    console.log(`hey`)
-    this.setState({ isMouseInside: true, opacity: 0.5 })
+    this.setState({ isMouseInside: true, opacity: 0.7 })
   }
 
   mouseLeave = () => {
     this.setState({ isMouseInside: false, opacity: 1 })
-  }
-
-  handleTapEvent = () => {
-    console.log("touchTap", e)
-    this.setState({ isMouseInside: true, opacity: 0.5 })
   }
 
   showItemActions = (track) => {
@@ -80,12 +74,10 @@ export default class ListItem extends Component {
         style={{opacity: this.state.opacity}}
         onMouseEnter={this.mouseEnter}
         onMouseLeave={this.mouseLeave}
-        onCli
         onClick={() => {
-          this.setState({isMouseInside: !this.state.isMouseInside, opacity: 0.5 })
+          this.setState({isMouseInside: !this.state.isMouseInside, opacity: 0.7 })
         }}
       >
-        {/* <td>{track.artists[0].name}</td> */}
         <td><img src={track.album.images[2].url} /></td>
         <td><b>{track.artists[0].name}</b><br/>{track.name}</td>
         <td>
