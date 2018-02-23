@@ -15,7 +15,13 @@ export function search(state = initialState, action = null) {
   const { type, payload } = action;
   switch (type) {
     case ActionTypes.CLEAR_SEARCH:
-      return Object.assign({}, initialState, { tracks: [], uris: []});
+      return Object.assign({}, state, { 
+        artist: {},
+        artistImage: null,
+        uris: [],
+        searchedArtist: null,
+        tracks: []
+      });
     case ActionTypes.SET_ARTIST:
       const artist = { artist: payload };
       return Object.assign({}, state, artist);

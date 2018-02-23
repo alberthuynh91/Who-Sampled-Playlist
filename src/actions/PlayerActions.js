@@ -1,4 +1,4 @@
-import { PLAY, PAUSE } from '../constants/ActionTypes';
+import { PLAY, PAUSE, RESET_PLAYER } from '../constants/ActionTypes';
 
 export function play(payload) {
   return {
@@ -14,3 +14,8 @@ export function pause(payload) {
   };
 }
 
+export function resetPlayer() {
+  return {
+    type: RESET_PLAYER
+  };
+}

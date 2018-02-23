@@ -22,6 +22,13 @@ export function player(state = initialState, action = null) {
       state.currentAudio.pause();
       return Object.assign({}, state, { playing: false });
     }
+    case ActionTypes.RESET_PLAYER: {
+      return Object.assign({}, state, {
+        playing: false,
+        currentAudio: null,
+        currentPreviewUrl: null
+      });
+    }
     default:
       return state;
   }

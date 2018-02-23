@@ -19,3 +19,4 @@ export const CLEAR_SEARCH = 'CLEAR_SEARCH';
 
 export const PLAY = 'PLAY';
 export const PAUSE = 'PAUSE';
+export const RESET_PLAYER = 'RESET_PLAYER';
