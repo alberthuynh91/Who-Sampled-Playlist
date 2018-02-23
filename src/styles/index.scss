@@ -21,6 +21,17 @@ body, html {
   margin: 15px 0px 15px 0px;
 }
 
+.button__login-spotify:hover {
+  background-color: #189644;
+}
+
+.button__login-spotify:focus {
+  background-color: #FFFFFF;
+  color: #838383;
+  opacity: 0.7;
+}
+
+
 @media screen and (min-width: 416px) {
   .container__index {
     h1 {
