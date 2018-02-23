@@ -11,7 +11,8 @@ export default class Save extends Component {
   state = {
       value: null,
       playlistName: null,
-      currentPlaylistID: null
+      currentPlaylistID: null,
+      saved: false
   }
 
   updateInput(value) {
@@ -70,6 +71,7 @@ export default class Save extends Component {
       this.setState({ currentPlaylistID: response.data.id });
       this.addTracksToPlaylist();
       // Create a success toast
+      this.setState({saved: true})
     });
   }
 
@@ -83,9 +85,12 @@ export default class Save extends Component {
             value={this.state.playlistName}
             placeholder="What would you like to name your playlist?"
             type="text"
-            onChange={(event) => this.updateInput({ playlistName: event.target.value })}
+            onChange={(event) => {
+              this.updateInput({ playlistName: event.target.value })
+              this.setState({saved: false})
+            }}
           />
-          <button className="btn btn-success" onClick={() => this.createAndSave()}> Save</button>
+          <button className="btn btn-success" onClick={() => this.createAndSave()}> {this.state.saved ? <span>Saved!</span> : <span>Save Playlist</span>}</button>
         </div>
     </div>
     );
