@@ -10,6 +10,11 @@ export default class PopularSearches extends Component {
         <h2 style={{color: '#FFFFFF'}}>Popular Searches</h2>
           <div style={{padding: '10px 10px'}}>
             <PopularItem 
+              src="https://c1.staticflickr.com/5/4606/25581182907_6fdc8470de_o.png"
+              artist={`J Cole`}
+              clickHandler={this.props.clickHandler}
+            />
+            <PopularItem 
                 src="https://c1.staticflickr.com/5/4709/40402693602_d47a8ee26b_o.png"
                 artist={`Kanye West`}
                 clickHandler={this.props.clickHandler}
