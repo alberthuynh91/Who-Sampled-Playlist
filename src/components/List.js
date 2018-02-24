@@ -25,7 +25,9 @@ export default class List extends Component {
     if (tracks.length > 0) {
       const trackItems = tracks.map((track, i) => {
         const index = i + 1;
-        return (<ListItem key={i} index={index} track={track} list={`search`} {...this.props}/>);
+        return (
+          <ListItem key={i} index={index} track={track} list={`search`} {...this.props}/>
+        );
       });
 
       return (

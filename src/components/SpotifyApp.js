@@ -17,6 +17,7 @@ import * as playerActionCreators from '../actions/PlayerActions.js';
 import styles from '../styles/app.scss';
 
 class SpotifyApp extends Component {
+
   render() {
     const { tracks, filter, addTrack, deleteTrack, clearTracks } = this.props;
     const hasTracks = Object.keys(tracks.tracks).length > 0
@@ -30,7 +31,7 @@ class SpotifyApp extends Component {
           </Row>
           <Row>
             <Col style={{paddingLeft: 4, paddingRight: 4}} xs={12} md={6}>
-              <List {...this.props} />
+              <List {...this.props} />                
             </Col>
             <Col style={{paddingLeft: 4, paddingRight: 4}} xs={12} md={6}>
               <UserPlaylist {...this.props} />

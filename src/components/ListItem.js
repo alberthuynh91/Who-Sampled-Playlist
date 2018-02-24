@@ -3,6 +3,8 @@
 import React, { Component, PropTypes } from 'react';
 import Immutable from 'immutable';
 import Tappable from 'react-tappable';
+import { ToastContainer, toast } from 'react-toastify';
+
 import styles from '../styles/listitem.scss';
 
 
@@ -27,8 +29,14 @@ export default class ListItem extends Component {
   showItemActions = (track) => {
     const {list, player} = this.props
     const { playing, currentAudio } = player;    
-    const addTrack = (<span className={`${styles.actionitem__button} glyphicon glyphicon-plus`} onClick={(e) => {this.handleAdd(track)}}></span>)
-    const deleteTrack = (<span className={`${styles.actionitem__button} glyphicon glyphicon-trash`} onClick={(e) => {this.handleDelete(track)}}></span>)
+    const addTrack = (<span className={`${styles.actionitem__button} glyphicon glyphicon-plus`} onClick={(e) => {
+      this.handleAdd(track)
+      toast("Added a new track to your playlist. Scroll down to see it! 😎")
+    }}></span>)
+    const deleteTrack = (<span className={`${styles.actionitem__button} glyphicon glyphicon-trash`} onClick={(e) => {
+      this.handleDelete(track)
+      toast("Removed a track from your playlist")
+    }}></span>)
     const previewState = playing && currentAudio.src === track.preview_url ? `${styles.actionitem__button} glyphicon glyphicon-pause` : `${styles.actionitem__button} glyphicon glyphicon-play`;
     const actions = list === `search` ? addTrack : deleteTrack
     if (this.state.isMouseInside || this.state.playing) {
@@ -86,7 +94,9 @@ export default class ListItem extends Component {
         <td>
           {this.showItemActions(track)}
         </td>
+        <ToastContainer />
       </tr>
+      
     );
   }
 }
