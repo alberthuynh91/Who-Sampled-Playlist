@@ -80,17 +80,18 @@ export default class SearchBar extends Component {
         this.getArtistApi(artist)
       })
     }
-    if (artist === `Schoolboy Q` || this.state.searchedArtist === `s` || this.state.searchedArtist === 'schoolboy q' || this.state.searchedArtist === 'Schoolboyq') {   
+
+    if (artist === `Kanye West` || this.state.searchedArtist === `K` || this.state.searchedArtist === `k` || this.state.searchedArtist === 'Kanye West' || this.state.searchedArtist === 'kanye west') {
       // Create mock api for this
-      const sampledArtists = [`Chromatics`, `Lissie`, `Nelly`];
+      const sampledArtists = [`Labi%20Siffre`, `Otis%20Redding`, `Ponderosa%20Twins%20Plus%20One`];
       sampledArtists.forEach((artist) => {
         this.getArtistApi(artist)
       })
     }
-
-    if (artist === `Kendrick Lamar` || this.state.searchedArtist === `kendrick` || this.state.searchedArtist === 'kendrick lamar' || this.state.searchedArtist === 'k dot') {   
+    
+    if (artist === `Schoolboy Q` || this.state.searchedArtist === `s` || this.state.searchedArtist === 'schoolboy q' || this.state.searchedArtist === 'Schoolboyq') {   
       // Create mock api for this
-      const sampledArtists = [`James%20Brown`, `Beach%20House`, `Bill%20Withers`];
+      const sampledArtists = [`Chromatics`, `Lissie`, `Nelly`];
       sampledArtists.forEach((artist) => {
         this.getArtistApi(artist)
       })
