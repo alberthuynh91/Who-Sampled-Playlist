@@ -15,7 +15,7 @@ export default class PopularSearches extends Component {
               clickHandler={this.props.clickHandler}
             />
             <PopularItem 
-                src="https://c1.staticflickr.com/5/4709/40402693602_d47a8ee26b_o.png"
+                src="https://c1.staticflickr.com/5/4609/39556364515_a42f09da7b_o.png"
                 artist={`Kanye West`}
                 clickHandler={this.props.clickHandler}
             />
