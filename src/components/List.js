@@ -2,6 +2,7 @@
 import React, { Component, PropTypes } from 'react';
 import Immutable from 'immutable';
 import ListItem from './ListItem.js'
+import TransitionGroup from 'react-transition-group/TransitionGroup';
 
 
 export default class List extends Component {
@@ -29,7 +30,7 @@ export default class List extends Component {
 
       return (
         <div>
-          <h3>Here are some songs from artists <span style={{color: 'coral'}}>{this.props.search.searchedArtist}</span> sampled</h3>
+          <h4>Here are some songs <span style={{color: 'coral'}}>{this.props.search.searchedArtist}</span> sampled from </h4>
           <table className="table table-striped table-hover">
             <thead>
             <tr>
@@ -38,7 +39,10 @@ export default class List extends Component {
               </tr>
             </thead>
             <tbody>
-              {trackItems}
+                <a onClick={toggleAnimation}>SHOW MORE</a>
+                <TransitionGroup>
+                  {trackItems}                
+                </TransitionGroup>
             </tbody>
           </table>
         </div>
