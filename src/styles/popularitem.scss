@@ -1,0 +1,18 @@
+.popularsearch__item {
+    width: 65px;
+    height: 65px;
+    opacity: 0.6;
+    padding: 6px 6px;
+  }
+  
+  .popularsearch__item_active  {
+    opacity: 1;
+  }
+  
+  .popularsearch__item:hover {
+    opacity: 1;
+  }
+  
+  .popularsearch__item:focus {
+    opacity: 1;
+  }

@@ -3,7 +3,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Jumbotron, Grid, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
-import Immutable from 'immutable';
+import PopularSearches from './PopularSearches'
 
 import styles from '../styles/searchbar.scss';
 
@@ -69,6 +69,7 @@ export default class SearchBar extends Component {
   }
 
   handleSubmit(artist) {
+    console.log(`fired handleSubmit wit : `, artist)
     const accessToken = localStorage.getItem('accessToken');
     this.clear()
     this.handleSearch(artist)
@@ -111,32 +112,8 @@ export default class SearchBar extends Component {
             placeholder={`Search`}
             onKeyPress={(e) => e.key === 'Enter' ? this.handleSubmit() : null} onChange={(e) => this.handleSearch(e.target.value)}
           />
-          
         </div>
-        <h2 style={{color: '#FFFFFF'}}>Popular Searches</h2>
-        <div style={{padding: '10px 10px'}}>
-          <span>
-            <img
-              className={styles.popularsearch__item}
-              src="https://c1.staticflickr.com/5/4709/40402693602_d47a8ee26b_o.png"
-              onClick={() => this.handleSubmit(`Kanye West`)}
-              />
-          </span>
-          <span>
-            <img
-              className={styles.popularsearch__item}
-              src="https://c1.staticflickr.com/5/4760/25575504517_167e1355a3_o.png"
-              onClick={() => this.handleSubmit(`Schoolboy Q`)}
-              />
-          </span>
-          <span>
-            <img
-              className={styles.popularsearch__item}
-              src="https://c1.staticflickr.com/5/4747/40446520501_5a08470c83_o.png"
-              onClick={() => this.handleSubmit(`Kendrick Lamar`)}
-              />
-          </span>
-        </div>
+        <PopularSearches clickHandler={this.handleSubmit.bind(this)} />
       </div>
     );
   }

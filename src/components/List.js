@@ -10,7 +10,7 @@ export default class List extends Component {
   //   todos: PropTypes.instanceOf(Immutable.List).isRequired,
   //   filter: PropTypes.string.isRequired
   // };
-
+  
   handleCheck(index) {
     this.props.toggleChecked(index);
   }
@@ -25,7 +25,7 @@ export default class List extends Component {
     if (tracks.length > 0) {
       const trackItems = tracks.map((track, i) => {
         const index = i + 1;
-        return (<ListItem index={index} track={track} list={`search`} {...this.props}/>);
+        return (<ListItem key={i} index={index} track={track} list={`search`} {...this.props}/>);
       });
 
       return (
@@ -39,10 +39,7 @@ export default class List extends Component {
               </tr>
             </thead>
             <tbody>
-                <a onClick={toggleAnimation}>SHOW MORE</a>
-                <TransitionGroup>
-                  {trackItems}                
-                </TransitionGroup>
+                {trackItems}
             </tbody>
           </table>
         </div>

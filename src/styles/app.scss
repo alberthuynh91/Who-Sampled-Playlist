@@ -21,6 +21,19 @@
 }
 
 .save__input {
-  width: 75%;
+  width: 70%;
   height: 30px;
+  border-radius: 3px;
+  border: 1px solid #d9d9d9;  
+}
+
+.save__button {
+  padding: 0px 10px;
+  color: #FFFFFF;
+  background-color: #1DB954;
+  font-weight: 400;
+  padding: 8px 8px;
+  border-radius: 5px;
+  min-width: 80px;
+  margin: 2px 6px;
 }

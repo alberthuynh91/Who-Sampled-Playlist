@@ -90,7 +90,11 @@ export default class Save extends Component {
               this.setState({saved: false})
             }}
           />
-          <button className="btn btn-success" onClick={() => this.createAndSave()}> {this.state.saved ? <span>Saved!</span> : <span>Save Playlist</span>}</button>
+          <button 
+            className={styles.save__button}
+            onClick={() => this.createAndSave()}> 
+              {this.state.saved ? <span>Saved!</span> : <span>Save Playlist</span>}
+          </button>
         </div>
     </div>
     );
