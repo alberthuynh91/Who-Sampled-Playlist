@@ -7,6 +7,10 @@ import { ToastContainer, toast } from 'react-toastify';
 
 import styles from '../styles/listitem.scss';
 
+const darkToast = {
+  className: { background: "black" },
+  bodyClassName: "grow-font-size"
+}
 
 export default class ListItem extends Component {
 
@@ -31,11 +35,11 @@ export default class ListItem extends Component {
     const { playing, currentAudio } = player;    
     const addTrack = (<span className={`${styles.actionitem__button} glyphicon glyphicon-plus`} onClick={(e) => {
       this.handleAdd(track)
-      toast("Added a new track to your playlist. Scroll down to see it! 😎")
+      toast("Added a new track to your playlist. Scroll down to see it! 😎", darkToast)
     }}></span>)
     const deleteTrack = (<span className={`${styles.actionitem__button} glyphicon glyphicon-trash`} onClick={(e) => {
       this.handleDelete(track)
-      toast("Removed a track from your playlist")
+      toast("Removed a track from your playlist", darkToast)
     }}></span>)
     const previewState = playing && currentAudio.src === track.preview_url ? `${styles.actionitem__button} glyphicon glyphicon-pause` : `${styles.actionitem__button} glyphicon glyphicon-play`;
     const actions = list === `search` ? addTrack : deleteTrack
@@ -94,7 +98,11 @@ export default class ListItem extends Component {
         <td>
           {this.showItemActions(track)}
         </td>
-        <ToastContainer />
+        <ToastContainer 
+          style={{
+            backgroundColor: "black"
+          }}
+        />
       </tr>
       
     );

@@ -8,6 +8,12 @@ import axios from 'axios';
 
 import styles from '../styles/app.scss';
 
+const darkToast = {
+  className: { background: "black" },
+  bodyClassName: "grow-font-size"
+}
+
+
 export default class Save extends Component {
   state = {
       value: null,
@@ -72,7 +78,7 @@ export default class Save extends Component {
       this.addTracksToPlaylist();
       // Create a success toast
       this.setState({saved: true})
-      toast("Successfully created new playlist. Look for it in Spotify! 😎")
+      toast("Successfully created new playlist. Look for it in Spotify! 😎", darkToast)
     });
   }
 
