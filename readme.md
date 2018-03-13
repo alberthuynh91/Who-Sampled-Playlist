@@ -21,10 +21,6 @@ Have you ever wondered where your favorite artist sampled their music from? Woul
 
 - clone this project
 - install dependencies via `npm install`
-- run a test server by `npm run server`
-
-## Scripts
-
 - `npm run build` build production app
 - `npm start` run a test server
 
