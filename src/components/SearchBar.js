@@ -47,29 +47,23 @@ export default class SearchBar extends Component {
   }
 
   getArtistApi(artist) {
-    console.log(`what is this.props dude: `, this.props)
     const accessToken = localStorage.getItem('accessToken');
     axios.get('https://api.spotify.com/v1/search?q=' + artist + '&type=artist', getReqParams(accessToken))
       .then(response => {
-        console.log(`what did i get from search????? : `, response);
         const artistID = response.data.artists.items[0].id;
         this.props.setArtist(response.data.artists.items[0]);
         axios.get('https://api.spotify.com/v1/artists/' + artistID + '/top-tracks?country=SE', getReqParams(accessToken))
         .then(response => {
-          console.log(`what is artist top tracks: `, response);
           this.props.addTracks({tracks: response.data.tracks});
-          console.log(`what is tracks in the response: `, response.data.tracks);
           const uris = response.data.tracks.map((track) => {
             return track.uri;
           });
-          console.log(`what is uris in the response: `, uris);
           this.props.addUris({uris})
         });
       });
   }
 
   handleSubmit(artist) {
-    console.log(`fired handleSubmit wit : `, artist)
     const accessToken = localStorage.getItem('accessToken');
     this.clear()
     this.handleSearch(artist)
@@ -81,7 +75,7 @@ export default class SearchBar extends Component {
       })
     }
 
-    if (artist === `Kanye West` || this.state.searchedArtist === `K` || this.state.searchedArtist === `k` || this.state.searchedArtist === 'Kanye West' || this.state.searchedArtist === 'kanye west') {
+    if (artist === `Kanye West` || this.state.searchedArtist === `K` || this.state.searchedArtist === `k` || this.state.searchedArtist === 'kanye west') {
       // Create mock api for this
       const sampledArtists = [`Labi%20Siffre`, `Otis%20Redding`, `Ponderosa%20Twins%20Plus%20One`];
       sampledArtists.forEach((artist) => {
