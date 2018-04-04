@@ -5,6 +5,8 @@ export default class IndexPage extends Component {
   componentWillMount() {
     document.body.style.backgroundImage = 'url(https://c1.staticflickr.com/5/4794/40740300992_c0c993fb69_o.jpg)';
     document.body.style.height = '100%';
+    document.body.style.width = '100%';
+    document.body.style.maxWidth = '100%';
     document.body.style.backgroundRepeat = 'no-repeat';
     document.body.style.backgroundPosition = 'center';
     document.body.style.display = 'flex';

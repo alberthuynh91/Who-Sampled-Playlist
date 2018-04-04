@@ -135,8 +135,7 @@ const production = {
       __DEVELOPMENT__: false
     }),
     new HtmlWebpackPlugin({
-      template: 'src/index.html.tpl',
-      inject: 'body'
+      template: 'src/index.html.tpl'
     })
   ],
   postcss() {
