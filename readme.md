@@ -4,6 +4,14 @@ Have you ever wondered where your favorite artist sampled their music from? Woul
 
 [DEMO](https://who-sampled-playlist.herokuapp.com/)
 
+## Setup
+
+- Clone this project: `git clone https://github.com/alberthuynh91/Who-Sampled-Playlist.git`
+- Make sure you are running node version `8.9.3`. You can check your node version by running `node -v`. You can switch versions using [nvm](https://github.com/creationix/nvm).  
+- Install dependencies: `npm install`
+- Build production app: `npm run build`
+- Run test server: `npm start`
+
 ## Backlog
 - New search should wipe current search. Your playlist should still be in tact.
 - Fix styling of index page so that it doesn't affect /spotify route
@@ -16,13 +24,6 @@ Have you ever wondered where your favorite artist sampled their music from? Woul
 - Add link to github repo on application
 - Show logged in user
 - Allow user to logout
-
-## Setup
-
-- clone this project
-- install dependencies via `npm install`
-- `npm run build` build production app
-- `npm start` run a test server
 
 ## Guide
 
