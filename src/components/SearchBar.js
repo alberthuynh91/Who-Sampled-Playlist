@@ -1,5 +1,4 @@
 /* eslint-disable */
-
 import React, { Component, PropTypes } from 'react';
 import { Jumbotron, Grid, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
@@ -13,10 +12,6 @@ const getReqParams = (accessToken) => ({
 })
 
 export default class SearchBar extends Component {
-  // static propTypes = {
-  //   todos: PropTypes.instanceOf(Immutable.List).isRequired,
-  //   filter: PropTypes.string.isRequired
-  // };
 
   state = {
     value: null,
@@ -38,6 +33,12 @@ export default class SearchBar extends Component {
   handleSearch(searchedArtist) {
     this.setState({ searchedArtist });
     this.props.setSearchedArtist(searchedArtist)
+    // Scrape whosampled 
+    console.log(`waht is searched: `, searchedArtist)
+    axios.post('/search', { artist: searchedArtist })
+      .then((res) => {
+        console.log(`what is res?? : `, res)
+      })
   }
 
   clear() {
@@ -113,7 +114,7 @@ export default class SearchBar extends Component {
             value={this.state.searchedArtist}
             type="text"
             placeholder={`Search`}
-            onKeyPress={(e) => e.key === 'Enter' ? this.handleSubmit() : null} onChange={(e) => this.handleSearch(e.target.value)}
+            onKeyPress={(e) => e.key === 'Enter' ? this.handleSubmit(e.target.value) : null} onChange={(e) => this.handleSearch(e.target.value)}
           />
         </div>
         <PopularSearches clickHandler={this.handleSubmit.bind(this)} />
