@@ -36,8 +36,12 @@ export default class SearchBar extends Component {
     // Scrape whosampled 
     console.log(`waht is searched: `, searchedArtist)
     axios.post('/search', { artist: searchedArtist })
-      .then((res) => {
-        console.log(`what is res?? : `, res)
+      .then(({data}) => {
+        const { artists } = data
+        console.log(`what is artists??? : `, artists)
+        artists.forEach((artist) => {
+          this.getArtistApi(artist)
+        })
       })
   }
 
@@ -51,30 +55,25 @@ export default class SearchBar extends Component {
     const accessToken = localStorage.getItem('accessToken');
     axios.get('https://api.spotify.com/v1/search?q=' + artist + '&type=artist', getReqParams(accessToken))
       .then(response => {
-        const artistID = response.data.artists.items[0].id;
-        this.props.setArtist(response.data.artists.items[0]);
-        axios.get('https://api.spotify.com/v1/artists/' + artistID + '/top-tracks?country=SE', getReqParams(accessToken))
-        .then(response => {
-          this.props.addTracks({tracks: response.data.tracks});
-          const uris = response.data.tracks.map((track) => {
-            return track.uri;
-          });
-          this.props.addUris({uris})
-        });
-      });
+        if (response.data.artists.items[0] && response.data.artists.items[0].id) {
+          const artistID = response.data.artists.items[0].id;
+          this.props.setArtist(response.data.artists.items[0]);
+          axios.get('https://api.spotify.com/v1/artists/' + artistID + '/top-tracks?country=SE', getReqParams(accessToken))
+          .then(response => {
+            this.props.addTracks({tracks: response.data.tracks});
+            const uris = response.data.tracks.map((track) => {
+              return track.uri;
+            });
+            this.props.addUris({uris})
+          })
+        }
+      })
   }
 
   handleSubmit(artist) {
     const accessToken = localStorage.getItem('accessToken');
     this.clear()
     this.handleSearch(artist)
-    if (artist === `J Cole` || this.state.searchedArtist === `j` || this.state.searchedArtist === `j cole` || this.state.searchedArtist === 'J cole' || this.state.searchedArtist === 'jcole') {
-      // Create mock api for this
-      const sampledArtists = [`The%20Honey%20Drippers`, `Hubert%0Laws`, `The%20Family%20Circle`, `K.P%20&%20Envyi`];
-      sampledArtists.forEach((artist) => {
-        this.getArtistApi(artist)
-      })
-    }
 
     if (artist === `Kanye West` || this.state.searchedArtist === `K` || this.state.searchedArtist === `k` || this.state.searchedArtist === 'kanye west') {
       // Create mock api for this
@@ -114,7 +113,7 @@ export default class SearchBar extends Component {
             value={this.state.searchedArtist}
             type="text"
             placeholder={`Search`}
-            onKeyPress={(e) => e.key === 'Enter' ? this.handleSubmit(e.target.value) : null} onChange={(e) => this.handleSearch(e.target.value)}
+            onKeyPress={(e) => e.key === 'Enter' ? this.handleSubmit(e.target.value) : null}
           />
         </div>
         <PopularSearches clickHandler={this.handleSubmit.bind(this)} />

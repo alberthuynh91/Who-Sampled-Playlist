@@ -93,7 +93,7 @@ export default class ListItem extends Component {
           this.setState({isMouseInside: !this.state.isMouseInside, opacity: 0.7 })
         }}
       >
-        <td><img src={track.album.images[2].url} /></td>
+        { track.album.images[2] && track.album.images[2].url && <td><img src={track.album.images[2].url} /></td>}
         <td><b>{track.artists[0].name}</b><br/>{track.name}</td>
         <td>
           {this.showItemActions(track)}

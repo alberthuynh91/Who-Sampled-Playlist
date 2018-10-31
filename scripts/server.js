@@ -56,9 +56,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.post('/search', (req, res) => {
-  console.log(`what is req: `, req.body.artist)
-  const tracks = [];
-
+  const artists = [];
   const options = {
     uri: 'https://www.whosampled.com/' + req.body.artist + '/',
     transform: function (body) {
@@ -69,15 +67,14 @@ app.post('/search', (req, res) => {
   rp(options)
   .then(($) => {
     $('.track-connection').find('li').each((i, elem) => {
-      console.log(`what is elem: `, $(elem).text())
         const match = $(elem).text().match(/by(.*)\(/g)
-        console.log(`what is match: `, match)
         if (match && match[0] !== null) {
-          tracks[i] = match[0].substr(2, match[0].length - 4)
+          console.log(`what is this: `, match[0].substr(3, match[0].length - 5))
+          artists.push(match[0].substr(3, match[0].length - 5))
         }
     })
-    console.log('Scraped Sampled Tracks from ' + req.body.artist + ' : \n', tracks)
-    res.send({ data: tracks })
+    console.log('Scraped Sampled Tracks from ' + req.body.artist + ' : \n', artists)
+    res.send({ artists })
   })
   .catch((err) => {
     console.log(err);
