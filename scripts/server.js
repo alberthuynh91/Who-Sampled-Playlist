@@ -69,7 +69,12 @@ app.post('/search', (req, res) => {
   rp(options)
   .then(($) => {
     $('.track-connection').find('li').each((i, elem) => {
-        tracks[i] = $(elem).text().replace(/[\n\t\r]/g,"");
+      console.log(`what is elem: `, $(elem).text())
+        const match = $(elem).text().match(/by(.*)\(/g)
+        console.log(`what is match: `, match)
+        if (match && match[0] !== null) {
+          tracks[i] = match[0].substr(2, match[0].length - 4)
+        }
     })
     console.log('Scraped Sampled Tracks from ' + req.body.artist + ' : \n', tracks)
     res.send({ data: tracks })
