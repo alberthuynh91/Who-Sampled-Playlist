@@ -10,8 +10,8 @@ const querystring = require('querystring');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const rp = require('request-promise');
 const cheerio = require('cheerio');
+const axios = require("axios");
 
 var app = express();
 var compiler = webpack(config);
@@ -57,15 +57,13 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 app.post('/search', (req, res) => {
   const artists = [];
-  const options = {
-    uri: 'https://www.whosampled.com/' + req.body.artist + '/',
-    transform: function (body) {
-      return cheerio.load(body)
-    }
-  }
+  const url = 'https://www.whosampled.com/Kendrick-Lamar/'
 
-  rp(options)
-  .then(($) => {
+  axios(url)
+  .then((response) => {
+    const html = response.data
+    const $ = cheerio.load(html)
+    console.log(`got to the rp>>>>>>>>>`)
     $('.track-connection').find('li').each((i, elem) => {
         const match = $(elem).text().match(/by(.*)\(/g)
         if (match && match[0] !== null) {
@@ -76,11 +74,9 @@ app.post('/search', (req, res) => {
     console.log('Scraped Sampled Tracks from ' + req.body.artist + ' : \n', artists)
     res.send({ artists })
   })
-  .catch((err) => {
-    console.log(err);
-  })
-
+  .catch(console.error);
 })
+
 /* The first call is the service’s /authorize endpoint, passing to it the client ID,
 scopes, and redirect URI. This is the call that starts the process of
 authenticating to user and gets the user’s authorization to access data. */
