@@ -27,7 +27,7 @@ class SpotifyApp extends Component {
           <Row>
             <Col>
               <SearchBar {...this.props} />
-            </Col> 
+            </Col>
           </Row>
           <Row>
             <Col style={{paddingLeft: 4, paddingRight: 4}} xs={12} md={6}>

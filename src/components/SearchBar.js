@@ -18,8 +18,7 @@ export default class SearchBar extends Component {
     artist: {},
     artistImage: null,
     uris: [],
-    tracks: [],
-    searchedArtist: null
+    tracks: []
   }
 
   handleAdd() {
@@ -31,8 +30,7 @@ export default class SearchBar extends Component {
   }
 
   handleSearch(searchedArtist) {
-    this.setState({ searchedArtist });
-    this.props.setSearchedArtist(searchedArtist)
+    // this.props.setSearchedArtist(searchedArtist)
     // Scrape whosampled 
     console.log(`what is updated search: `, searchedArtist.replace(/\s+/g, '-').toLowerCase())
     axios.post('/search', { artist: searchedArtist.replace(/\s+/g, '-').toLowerCase() })
@@ -70,37 +68,19 @@ export default class SearchBar extends Component {
       })
   }
 
-  handleSubmit(artist) {
-    const accessToken = localStorage.getItem('accessToken');
+  handleSubmit(e) {
+    // e.stopPropagation()
+    console.log(`what is e; `, e)
+    const { value } = e.target
     this.clear()
-    this.handleSearch(artist)
-
-    if (artist === `Kanye West` || this.state.searchedArtist === `K` || this.state.searchedArtist === `k` || this.state.searchedArtist === 'kanye west') {
-      // Create mock api for this
-      const sampledArtists = [`Labi%20Siffre`, `Otis%20Redding`, `Ponderosa%20Twins%20Plus%20One`];
-      sampledArtists.forEach((artist) => {
-        this.getArtistApi(artist)
-      })
-    }
-    
-    if (artist === `Schoolboy Q` || this.state.searchedArtist === `s` || this.state.searchedArtist === 'schoolboy q' || this.state.searchedArtist === 'Schoolboyq') {   
-      // Create mock api for this
-      const sampledArtists = [`Chromatics`, `Lissie`, `Nelly`];
-      sampledArtists.forEach((artist) => {
-        this.getArtistApi(artist)
-      })
-    }
-
-    if (artist === `Kendrick Lamar` || this.state.searchedArtist === `kendrick` || this.state.searchedArtist === 'kendrick lamar' || this.state.searchedArtist === 'k dot') {   
-      // Create mock api for this
-      const sampledArtists = [`James%20Brown`, `Beach%20House`, `Bill%20Withers`];
-      sampledArtists.forEach((artist) => {
-        this.getArtistApi(artist)
-      })
-    }
+    this.handleSearch(value)
   }
 
+
+
   render() {
+    const { search: { searchedArtist } } = this.props
+    console.log(`what is props in searchbar: `, this.props)
     return (
       <div className={styles.parent__searchbar}>
         <div className={styles.title__searchbar}><i className="fab fa-spotify"></i></div>        
@@ -110,10 +90,10 @@ export default class SearchBar extends Component {
               onClick={(e) => this.handleSubmit()}><i className="fas fa-search"></i></button>
           <input 
             className={styles.input__searchbar}
-            value={this.state.searchedArtist}
+            value={searchedArtist}
             type="text"
-            placeholder={`Search`}
-            onKeyPress={(e) => e.key === 'Enter' ? this.handleSubmit(e.target.value) : null}
+            placeholder="Search For Artist"
+            onKeyPress={(e) => e.key === 'Enter' ? this.handleSubmit(e) : null}
           />
         </div>
         <PopularSearches clickHandler={this.handleSubmit.bind(this)} />
