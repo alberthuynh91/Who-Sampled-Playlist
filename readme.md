@@ -11,6 +11,7 @@ Have you ever wondered where your favorite artist sampled their music from? Woul
 - Install dependencies: `npm install`
 - Build production app: `npm run build`
 - Run test server: `npm start`
+- Navigate to `localhost:5000` in your browser
 
 ## Backlog
 - New search should wipe current search. Your playlist should still be in tact.
