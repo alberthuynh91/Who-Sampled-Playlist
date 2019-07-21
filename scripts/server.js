@@ -57,7 +57,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 app.post('/search', (req, res) => {
   const artists = [];
-  const url = 'https://www.whosampled.com/Kendrick-Lamar/'
+  const url = 'https://www.whosampled.com/' + req.body.artist + '/'
 
   axios(url)
   .then((response) => {

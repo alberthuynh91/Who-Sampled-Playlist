@@ -34,8 +34,8 @@ export default class SearchBar extends Component {
     this.setState({ searchedArtist });
     this.props.setSearchedArtist(searchedArtist)
     // Scrape whosampled 
-    console.log(`waht is searched: `, searchedArtist)
-    axios.post('/search', { artist: searchedArtist })
+    console.log(`what is updated search: `, searchedArtist.replace(/\s+/g, '-').toLowerCase())
+    axios.post('/search', { artist: searchedArtist.replace(/\s+/g, '-').toLowerCase() })
       .then(({data}) => {
         const { artists } = data
         console.log(`what is artists??? : `, artists)
