@@ -14,7 +14,8 @@ Have you ever wondered where your favorite artist sampled their music from? Woul
 - Navigate to `localhost:5000` in your browser
 
 ## Backlog
-- New search should wipe current search. Your playlist should still be in tact.
+- Show user feedback when no results found for an artist
+- When scraping whosampled, only select `sampled` results and ignore `was sampled in` results
 - Fix styling of index page so that it doesn't affect /spotify route
 - Adding song to playlist should remove from current search list
 - Fix 'Clear Playlist' button. Currently is not working. Check reducers.
@@ -24,7 +25,6 @@ Have you ever wondered where your favorite artist sampled their music from? Woul
 - Add autocomplete in searchbar
 - Add link to github repo on application
 - Show logged in user
-- Allow user to logout
 
 ## Guide
 
