@@ -15,7 +15,7 @@
   "author": "lcj <emlcjnil@gmail.com>",
   "license": "BSD 3-clause",
   "dependencies": {
-    "axios": "^0.17.1",
+    "axios": "^0.21.1",
     "babel-core": "^6.7.0",
     "babel-eslint": "^5.0.0",
     "babel-loader": "^6.2.4",
